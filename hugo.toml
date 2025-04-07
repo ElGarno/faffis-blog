@@ -1,6 +1,6 @@
 theme = "PaperMod"
 
-baseURL = 'https://example.org/'
+baseURL = 'https://faffi.cloud/'
 languageCode = 'en-us'
 title = 'Faffis Blog'
 
