@@ -1,0 +1,6 @@
+theme = "PaperMod"
+
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Faffis Blog'
+
