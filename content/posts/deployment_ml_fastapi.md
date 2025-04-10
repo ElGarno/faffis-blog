@@ -1,9 +1,8 @@
 +++
 date = '2025-04-10T20:12:12+02:00'
 draft = false
+title = 'Deployment via Fast-API'
 +++
-
-# Deployment via Fast-API
 
 ## Einleitung
 
