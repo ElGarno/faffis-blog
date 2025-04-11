@@ -1,0 +1,8 @@
+.post-header-image {
+    display: block; /* Allows margin auto to work for centering */
+    width: 100%;    /* Make it responsive */
+    max-width: 720px; /* Or your preferred max width */
+    height: auto;   /* Maintain aspect ratio */
+    margin: 0 auto 2em auto; /* Center horizontally, add 2em bottom margin */
+    border-radius: 5px; /* Optional: rounded corners */
+}

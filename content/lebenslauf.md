@@ -5,6 +5,7 @@ draft = false
 # Optional: Füge ein Menü hinzu, wenn es in der Hauptnavigation erscheinen soll
 menu = "main"
 weight = 20 # Bestimmt die Reihenfolge im Menü
+tags = ["cv"]
 +++
 
 ## Persönliche Daten
