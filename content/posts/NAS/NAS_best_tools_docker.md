@@ -4,7 +4,7 @@ draft = false
 title = 'Best docker Container for your NAS'
 cover.image = "blog_nas_docker_header_image.png" # Pfad zum Bild im static-Ordner
 cover.alt = "Docker logos auf einem Server-Rack Hintergrund" # Wichtig für Barrierefreiheit & SEO
-cover.caption = "Mein NAS Setup mit Docker", # Optional: Bildunterschrift
+cover.caption = "Mein NAS Setup mit Docker" # Optional: Bildunterschrift
 cover.relative = true # Wichtig für Page Bundles
 +++
 
