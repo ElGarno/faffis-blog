@@ -4,6 +4,8 @@ draft = false
 title = 'Best docker Container for your NAS'
 +++
 
+![Best Docker Containers for NAS](/images/blog_nas_docker_header_image.png)
+
 ## Introduction
 
 Synology NAS devices are not only excellent for backups and data storage but also serve as powerful web servers and platforms for running Docker containers. With the ability to operate 24/7, both your NAS and the Docker containers can remain consistently available. The vast array of available containers can make it challenging to choose the best ones for your needs. In this article, I will introduce you to the containers I use most frequently, including those for ad-blocking, creating a paperless office, managing home automation, and running custom Python code.
@@ -29,10 +31,12 @@ Portainer is an essential tool for managing your Docker containers. It provides 
 
 ### Pihole
 
+![Pihole Logo](/images/logos/pihole.png)
 Pihole acts as an ad-blocker for your network, allowing you to block unwanted advertisements and set up specific restrictions or rules for each device connected to your network. This enhances security and improves browsing experiences across all devices.
 
 ### Twingate
 
+![Twingate Logo](/images/logos/twingate.png)
 Twingate offers a zero-trust network solution, enabling secure remote access to your home network. With its mobile app, you can connect safely to your NAS from anywhere, ensuring that your data remains protected.
 
 ### paperless-ngx
