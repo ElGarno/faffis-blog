@@ -13,7 +13,7 @@ Synology NAS devices are not only excellent for backups and data storage but als
 Here are my top picks for Docker containers that enhance the functionality of my NAS:
 
 - **Home Assistant** (home automation)
-- {{< figure src="/images/logos/portainer.png" alt="Portainer Logo" style="height: 1.2em; vertical-align: middle; margin-right: 5px;" >}} **Portainer** (managing containers)
+- **Portainer** (managing containers)
 - **Pihole** (security and ad-blocker)
 - **Twingate** (zero-trust network for remote access)
 - **paperless_ngx** (for a paper-free office)
@@ -24,6 +24,7 @@ Here are my top picks for Docker containers that enhance the functionality of my
 
 ### Portainer
 
+![Portainer Logo](/images/logos/portainer.png){width=20px}
 Portainer is an essential tool for managing your Docker containers. It provides a user-friendly interface where you can view every detail of your stacks and containers, access logs, and deploy new containers with ease.
 
 ### Pihole
