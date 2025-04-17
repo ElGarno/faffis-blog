@@ -1,14 +1,13 @@
-+++
-date = '2025-04-17T13:51:12+02:00'
-draft = false
-title = 'Best docker Container for your NAS'
-cover = {
-    image = "blog_nas_docker_header_image.png", # Pfad zum Bild im static-Ordner
-    alt = "Docker logos auf einem Server-Rack Hintergrund", # Wichtig für Barrierefreiheit & SEO
-    caption = "Mein NAS Setup mit Docker", # Optional: Bildunterschrift
-    relative = true # Wichtig für Page Bundles
-}
-+++
+---
+date: '2025-04-17T13:51:12+02:00'
+draft: false
+title: 'Best docker Container for your NAS'
+cover:
+    image: "blog_nas_docker_header_image.png", # Pfad zum Bild im static-Ordner
+    alt: "Docker logos auf einem Server-Rack Hintergrund", # Wichtig für Barrierefreiheit & SEO
+    caption: "Mein NAS Setup mit Docker", # Optional: Bildunterschrift
+    relative: true # Wichtig für Page Bundles
+---
 
 ## Introduction
 
