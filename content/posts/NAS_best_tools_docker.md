@@ -24,7 +24,7 @@ Here are my top picks for Docker containers that enhance the functionality of my
 
 ### Portainer
 
-![Portainer Logo](/images/logos/portainer.png){width=20px}
+![Portainer Logo](/images/logos/portainer.png|width=20)
 Portainer is an essential tool for managing your Docker containers. It provides a user-friendly interface where you can view every detail of your stacks and containers, access logs, and deploy new containers with ease.
 
 ### Pihole
