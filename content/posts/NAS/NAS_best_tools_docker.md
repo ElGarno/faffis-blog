@@ -48,7 +48,7 @@ The paperless-ngx container is perfect for creating a paper-free office. When us
 
 ### Grafana
 
-![Grafana Logo](/images/logos/fixed/Grafana-logo.png)
+![Grafana Logo](/images/logos/fixed/Grafana_logo.png)
 Grafana is a well-known dashboarding tool that helps visualize your databases. It offers a wide range of aggregation functionalities and is highly performant, making it ideal for monitoring and analyzing data.
 
 ### Database (PostgreSQL or InfluxDB)
