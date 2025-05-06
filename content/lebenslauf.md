@@ -6,6 +6,8 @@ draft = false
 menu = "main"
 weight = 20 # Bestimmt die Reihenfolge im Menü
 tags = ["cv"]
+birth_date_daughter = 2020-07-12T10:00:00+02:00
+birth_date_son = 2022-07-05T10:00:00+02:00
 +++
 
 ---
@@ -19,7 +21,7 @@ Wippeskuhlen 53, 57439 Attendorn\
 
 ## About Me
 
-I am married and have a daughter of 4 years and a son of age 2. In general I am a very cheerful and satisfied person. I am highly motivated for testing out new topics and open minded. I love creating rapid POCs with genAI and like to go out and having people around me.
+I am married and have a daughter of {{< age-daughter >}} years and a son of age  {{< age-son >}}.  In general I am a very cheerful and satisfied person. I am highly motivated for testing out new topics and open minded. I love creating rapid POCs with genAI and like to go out and having people around me.
 
 ---
 
