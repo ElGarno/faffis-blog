@@ -38,11 +38,12 @@ Pihole acts as an ad-blocker for your network, allowing you to block unwanted ad
 
 ### Twingate
 
-![Twingate Logo](/images/logos/twingate.png)
+<img src="/images/logos/twingate.png" alt="Twingate Logo" width="60" height="60" style="object-fit: contain;" />
 Twingate offers a zero-trust network solution, enabling secure remote access to your home network. With its mobile app, you can connect safely to your NAS from anywhere, ensuring that your data remains protected.
 
 ### paperless-ngx
 
+![Paperless Logo](/images/logos/Paperless-ngx.png)
 The paperless-ngx container is perfect for creating a paper-free office. When used with a duplex scanner, it allows for automatic tag generation through plugins and OCR detection, enabling full-text scans and searches. This makes it an excellent solution for storing and managing documents on your NAS.
 
 ### Grafana
