@@ -48,18 +48,22 @@ The paperless-ngx container is perfect for creating a paper-free office. When us
 
 ### Grafana
 
+![Grafana Logo](/images/logos/fixed/Grafana-logo.png)
 Grafana is a well-known dashboarding tool that helps visualize your databases. It offers a wide range of aggregation functionalities and is highly performant, making it ideal for monitoring and analyzing data.
 
 ### Database (PostgreSQL or InfluxDB)
 
+![Postgres Logo](/images/logos/fixed/Postgresql.png)
 Having a solid database like PostgreSQL or InfluxDB on your NAS is crucial for storing web content, sensor data, or other information. These databases provide reliable storage solutions for various applications.
 
 ### n8n
 
+![n8n Logo](/images/logos/fixed/N8n.png)
 n8n is a popular automation tool that allows you to create and run workflows, including those that incorporate AI. It simplifies the process of automating tasks and integrating different services.
 
 ### Custom Containers
 
+![Python Logo](/images/logos/fixed/python-logo2.png)
 For those who want to run their own Python code, creating custom containers is a great option. This allows you to package your scripts and run them seamlessly on your NAS, providing flexibility and control over your applications.
 
 ## Conclusion
