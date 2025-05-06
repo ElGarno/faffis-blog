@@ -28,22 +28,22 @@ Here are my top picks for Docker containers that enhance the functionality of my
 
 ### Portainer
 
-![Portainer Logo](/images/logos/portainer2.png)
+![Portainer Logo](/images/logos/fixed/portainer.png)
 Portainer is an essential tool for managing your Docker containers. It provides a user-friendly interface where you can view every detail of your stacks and containers, access logs, and deploy new containers with ease.
 
 ### Pihole
 
-![Pihole Logo](/images/logos/pihole2.png)
+![Pihole Logo](/images/logos/fixed/pihole.png)
 Pihole acts as an ad-blocker for your network, allowing you to block unwanted advertisements and set up specific restrictions or rules for each device connected to your network. This enhances security and improves browsing experiences across all devices.
 
 ### Twingate
 
-<img src="/images/logos/twingate.png" alt="Twingate Logo" width="60" height="60" style="object-fit: contain;" />
+![Twingate Logo](/images/logos/fixed/twingate.png)
 Twingate offers a zero-trust network solution, enabling secure remote access to your home network. With its mobile app, you can connect safely to your NAS from anywhere, ensuring that your data remains protected.
 
 ### paperless-ngx
 
-![Paperless Logo](/images/logos/Paperless-ngx.png)
+![Paperless Logo](/images/logos/fixed/Paperless-ngx.png)
 The paperless-ngx container is perfect for creating a paper-free office. When used with a duplex scanner, it allows for automatic tag generation through plugins and OCR detection, enabling full-text scans and searches. This makes it an excellent solution for storing and managing documents on your NAS.
 
 ### Grafana
