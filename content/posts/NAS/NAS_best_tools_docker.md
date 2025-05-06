@@ -2,7 +2,7 @@
 date = '2025-04-17T13:51:12+02:00'
 draft = false
 title = 'Best docker Container for your NAS'
-cover.image = "/images/covers/blog_nas_docker_header_image.png" 
+cover.image = "/images/covers/blog_nas_docker_header_image.webp" 
 cover.alt = "Docker logos auf einem Server-Rack Hintergrund" #
 cover.caption = "Mein NAS Setup mit Docker" 
 cover.relative = false
