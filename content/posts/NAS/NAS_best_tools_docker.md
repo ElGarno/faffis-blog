@@ -2,7 +2,7 @@
 date = '2025-04-17T13:51:12+02:00'
 draft = false
 title = 'Best docker Container for your NAS'
-cover.image = "/images/covers/blog_nas_docker_header_image.webp" 
+cover.image = "/images/covers/blog_nas_docker_header_image2.webp" 
 cover.alt = "Docker logos auf einem Server-Rack Hintergrund" #
 cover.caption = "Mein NAS Setup mit Docker" 
 cover.relative = false
@@ -33,7 +33,7 @@ Portainer is an essential tool for managing your Docker containers. It provides 
 
 ### Pihole
 
-![Pihole Logo](/images/logos/pihole.png)
+![Pihole Logo](/images/logos/pihole2.png)
 Pihole acts as an ad-blocker for your network, allowing you to block unwanted advertisements and set up specific restrictions or rules for each device connected to your network. This enhances security and improves browsing experiences across all devices.
 
 ### Twingate
