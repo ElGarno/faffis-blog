@@ -6,8 +6,6 @@ draft = false
 menu = "main"
 weight = 20 # Bestimmt die Reihenfolge im Menü
 tags = ["cv"]
-birth_date_daughter = 2020-07-12T10:00:00+02:00
-birth_date_son = 2022-07-05T10:00:00+02:00
 +++
 
 ---
