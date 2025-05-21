@@ -6,3 +6,31 @@
     margin: 0 auto 2em auto; /* Center horizontally, add 2em bottom margin */
     border-radius: 5px; /* Optional: rounded corners */
 }
+
+/* === Thumbnails in der Listenansicht === */
+.post-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Abstand zwischen den Cards */
+}
+
+.entry-cover {
+    flex: 0 0 150px;      /* fixe Breite für das Thumbnail */
+    margin-right: 1rem;
+    overflow: hidden;
+    border-radius: 5px;    /* wenn Du abgerundete Ecken magst */
+}
+
+.entry-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Optional: Text und Meta etwas dichter aneinanderrücken */
+.post-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

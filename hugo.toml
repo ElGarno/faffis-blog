@@ -3,3 +3,6 @@ theme = "PaperMod"
 baseURL = 'https://faffi.cloud/'
 languageCode = 'en-us'
 title = 'Faffis Blog'
+
+[params]
+    customCSS = ["css/extended/custom.css"]
