@@ -3,13 +3,3 @@ theme = "PaperMod"
 baseURL = 'https://faffi.cloud/'
 languageCode = 'en-us'
 title = 'Faffis Blog'
-
-[params.cover]
-responsive = true
-thumbnail = true
-hidden = false
-linkFullImages = false
-
-[params.list]
-view = "compact"      
-showThumbnail = true    
