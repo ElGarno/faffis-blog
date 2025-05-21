@@ -1,8 +1,4 @@
 +++
-title = "Alle Beiträge"
-layout = "list"
-
-[cascade.cover]
-show = true
-thumbnail = true
+title = "Redirect"
+url = "/posts/"
 +++
