@@ -9,3 +9,7 @@ responsive = true
 thumbnail = true
 hidden = false
 linkFullImages = false
+
+[params.list]
+view = "compact"      
+showThumbnail = true    
