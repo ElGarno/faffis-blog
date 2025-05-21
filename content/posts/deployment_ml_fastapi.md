@@ -3,9 +3,11 @@ date = '2025-04-10T20:12:12+02:00'
 draft = false
 title = 'Deployment via Fast-API'
 cover.image = "/images/covers/blog_deployment_ml_fastapi.webp" 
+cover.thumbnail = "/images/covers/generated/blog_deployment_ml_fastapi_thumb.webp"
 cover.alt = "Verschiedene Services für das Deployment von ml-Modellen" #
 cover.caption = "Deployment Services für ML-Modelle" 
 cover.relative = false
+cover.hidden = false
 tags = ["Deployment", "FastAPI", "Python", "Web Development", "API"] 
 +++
 
