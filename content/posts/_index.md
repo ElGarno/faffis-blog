@@ -1,8 +1,8 @@
 +++
 title = "Alle Beiträge"
 layout = "list"
-cascade:
-  cover:
-    show: true
-    thumbnail: true
+
+[cascade.cover]
+show = true
+thumbnail = true
 +++
