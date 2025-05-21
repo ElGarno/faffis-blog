@@ -4,3 +4,9 @@ baseURL = 'https://faffi.cloud/'
 languageCode = 'en-us'
 title = 'Faffis Blog'
 
+[params]
+  cover:
+    responsive = true
+    hidden = false
+    linkFullImages = false
+    thumbnail = true
