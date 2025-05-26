@@ -9,94 +9,99 @@ cover.relative = true
 tags = ["Deployment", "FastAPI", "Python", "Web Development", "API"] 
 +++
 
-## Einleitung
+## Introduction
 
-In der heutigen digitalen Welt ist die Bereitstellung von Anwendungen entscheidend für den Erfolg eines Projekts. FastAPI hat sich als leistungsstarkes Framework für die Entwicklung von APIs etabliert. In diesem Artikel werden wir die Vorteile und Schritte zur Bereitstellung einer Anwendung mit FastAPI im Rahmen des Loyalty-Projekts der Krombacher Brauerei erläutern und zusätzlich die Eignung von FastAPI für das Deployment von Machine Learning (ML)-Modellen beleuchten.
+In today's digital world, the deployment of applications is crucial for the success of a project. FastAPI has established itself as a powerful framework for developing APIs. In this article, we will explain the advantages and steps for deploying an application using FastAPI within the context of the loyalty project of Krombacher Brewery, and additionally highlight the suitability of FastAPI for deploying Machine Learning (ML) models.
 
-## Funktionsfähiger Case
+## Functional Case
 
-Eine funktionsfähige Version des Frameworks ist im Loyalty-Projekt zu finden.
+A functional version of the framework can be found in the loyalty project.
 
-## Vorteile von FastAPI
+## Advantages of FastAPI
 
-Die Verwendung von FastAPI bietet zahlreiche Vorteile:
+Using FastAPI offers numerous benefits:
 
-- **Höchste Flexibilität**: FastAPI ermöglicht eine einfache Anpassung und Erweiterung der API.
-- **Bessere Performance**: Im Vergleich zu Lambda-Funktionen entfällt der Cold-Start, was die Reaktionszeiten verbessert.
-- **Swagger-Dokumentation**: FastAPI generiert automatisch eine Swagger-Dokumentation für die Endpunkte, die verschiedene Stufen wie /health, /predict1, /predict2 usw. umfasst.
-- **Geringere Kosten**: Es wird kein Sagemaker-Endpoint benötigt, was die Kosten senkt.
-- **Besseres Monitoring**: Alle Endpunkte können innerhalb eines ECS-Clusters überwacht werden.
-- **Sicherheitslevel**: HTTPS und x-api-key bieten ein vergleichbares Sicherheitsniveau.
-- **Eigene Domäne**: Die Anwendung kann in einer spezifischen "informationshaltigen" Domäne betrieben werden.
+- **Maximum Flexibility**: FastAPI allows for easy customization and extension of the API.
+- **Better Performance**: Compared to Lambda functions, the cold start is eliminated, improving response times.
+- **Swagger Documentation**: FastAPI automatically generates Swagger documentation for the endpoints, which includes various stages such as /health, /predict1, /predict2, etc.
+- **Lower Costs**: No Sagemaker endpoint is required, reducing costs.
+- **Better Monitoring**: All endpoints can be monitored within an ECS cluster.
+- **Security Level**: HTTPS and x-api-key provide a comparable level of security.
+- **Custom Domain**: The application can be operated in a specific "information-rich" domain.
 
-## Warum FastAPI für ML-Modelle?
+## Why FastAPI for ML Models?
 
-FastAPI eignet sich besonders gut für das Deployment von Machine Learning-Modellen aus mehreren Gründen:
+FastAPI is particularly well-suited for deploying Machine Learning models for several reasons:
 
-1. **Asynchrone Verarbeitung**: FastAPI unterstützt asynchrone Programmierung, was bedeutet, dass Anfragen parallel verarbeitet werden können. Dies ist besonders vorteilhaft für ML-Modelle, die oft rechenintensive Vorhersagen durchführen.
+1. **Asynchronous Processing**: FastAPI supports asynchronous programming, meaning requests can be processed in parallel. This is especially beneficial for ML models that often perform computationally intensive predictions.
 
-2. **Einfache Integration**: FastAPI lässt sich leicht mit gängigen ML-Bibliotheken wie TensorFlow, PyTorch und Scikit-Learn integrieren. Dies ermöglicht eine nahtlose Bereitstellung von Modellen als API-Endpunkte.
+2. **Easy Integration**: FastAPI easily integrates with popular ML libraries such as TensorFlow, PyTorch, and Scikit-Learn. This allows for seamless deployment of models as API endpoints.
 
-3. **Schnelle Entwicklung**: Die Verwendung von Python-Typen und die automatische Generierung von Dokumentationen beschleunigen den Entwicklungsprozess, was für Teams, die schnell auf Änderungen reagieren müssen, von Vorteil ist.
+3. **Rapid Development**: The use of Python types and automatic documentation generation speeds up the development process, which is advantageous for teams that need to respond quickly to changes.
 
-4. **Validierung und Serialisierung**: FastAPI bietet eingebaute Validierungs- und Serialisierungsfunktionen, die sicherstellen, dass die Eingabedaten für ML-Modelle korrekt sind, bevor sie verarbeitet werden.
+4. **Validation and Serialization**: FastAPI provides built-in validation and serialization features that ensure the input data for ML models is correct before processing.
 
-## Voraussetzungen für das Deployment
+5. **Scalability**: FastAPI applications can be easily scaled using containerization (e.g., Docker) and orchestration tools (e.g., Kubernetes), which is essential for handling varying loads in ML applications.
 
-Um FastAPI für das Deployment von ML-Modellen zu nutzen, sind einige Voraussetzungen erforderlich:
+## Prerequisites for Deployment
 
-- **Python-Umgebung**: FastAPI benötigt Python 3.6 oder höher.
-- **ML-Bibliotheken**: Installieren Sie die erforderlichen ML-Bibliotheken, die Sie für Ihr Modell benötigen (z.B. TensorFlow, PyTorch).
-- **Docker**: Für die Containerisierung der Anwendung ist Docker erforderlich.
-- **Cloud-Dienste**: Wenn Sie die Anwendung in der Cloud bereitstellen möchten, benötigen Sie Zugang zu Diensten wie AWS, Azure oder Google Cloud.
+To use FastAPI for deploying ML models, several prerequisites are required:
 
-## Schwächen von FastAPI
+- **Python Environment**: FastAPI requires Python 3.6 or higher.
+- **ML Libraries**: Install the necessary ML libraries needed for your model (e.g., TensorFlow, PyTorch).
+- **Docker**: Docker is required for containerizing the application.
+- **Cloud Services**: If you want to deploy the application in the cloud, you need access to services like AWS, Azure, or Google Cloud.
 
-Trotz der vielen Vorteile gibt es auch einige Schwächen, die bei der Verwendung von FastAPI berücksichtigt werden sollten:
+## Weaknesses of FastAPI
 
-1. **Lernkurve**: Für Entwickler, die neu in der asynchronen Programmierung sind, kann die Lernkurve steil sein. Es erfordert ein gewisses Verständnis von asynchronen Konzepten.
+Despite its many advantages, there are also some weaknesses to consider when using FastAPI:
 
-2. **Performance bei sehr hohen Lasten**: Während FastAPI für die meisten Anwendungen sehr performant ist, kann es bei extrem hohen Lasten (z.B. Tausende von gleichzeitigen Anfragen) zu Engpässen kommen, wenn die Infrastruktur nicht entsprechend skaliert ist.
+1. **Learning Curve**: For developers new to asynchronous programming, the learning curve can be steep. It requires a certain understanding of asynchronous concepts.
 
-3. **Weniger Community-Ressourcen**: Im Vergleich zu älteren Frameworks wie Flask oder Django gibt es möglicherweise weniger Community-Ressourcen und -Plugins, was die Lösung spezifischer Probleme erschweren kann.
+2. **Performance Under Very High Loads**: While FastAPI is very performant for most applications, it may experience bottlenecks under extremely high loads (e.g., thousands of simultaneous requests) if the infrastructure is not scaled accordingly.
 
-## Schritte zum Deployment
+3. **Fewer Community Resources**: Compared to older frameworks like Flask or Django, there may be fewer community resources and plugins, which can make solving specific problems more challenging.
 
-Hier sind die Schritte, die für das Deployment einer FastAPI-Anwendung erforderlich sind:
+4. **Limited Built-in Features**: FastAPI focuses on being lightweight and fast, which means it may lack some built-in features that other frameworks provide, such as user authentication or database integration.
 
-1. **FastAPI-Skript anpassen**: Passen Sie das Fast-Api-Skript an Ihre Bedürfnisse an.
-   
-2. **serverless.yml anpassen**: Ändern Sie die Punkte in der [serverless.yml](https://gitlab.com/krombacher-brauerei/datascience_krombacher/loyalty/-/blob/master/src/Fraud_Detection/serverless.yml), die mit "edit manually" kommentiert sind.
+## Steps for Deployment
 
-3. **Weitere Elemente erstellen**: 
-   - **securityGroupIds**: 
-     - Inbound-Traffic: Ports 80 (HTTP), 443 (HTTPS), 8000 (Load Balancer) zulassen.
-     - Outbound-Rules: Alle IPv4-Traffic zulassen.
-   - **TaskRoleArn**: Passen Sie die Policy in dieser Rolle an, um die Berechtigungen innerhalb der FastAPI-App zu steuern.
-   - **ExecutionRoleArn**: Diese Rolle vergibt Rechte zum Zugriff auf ECR, ECS usw. zur Erstellung der Infrastruktur.
-   - **Ports anpassen**: Stellen Sie sicher, dass die Container-Ports entsprechend dem Docker-Container angepasst werden.
+Here are the steps required for deploying a FastAPI application:
 
-4. **Dockerfile anpassen**: Passen Sie das [Dockerfile](https://gitlab.com/krombacher-brauerei/datascience_krombacher/loyalty/-/blob/master/src/Fraud_Detection/Dockerfile) an, um sicherzustellen, dass alle Abhängigkeiten und das ML-Modell korrekt integriert sind.
+1. **Adjust FastAPI Script**: Customize the FastAPI script to meet your needs.
 
-5. **App Container bauen**: Führen Sie die Schritte zum Bauen, Taggen, Anmelden und Pushen des Containers durch. Dies kann mit Docker-Befehlen wie `docker build`, `docker tag`, `docker login` und `docker push` erfolgen.
+2. **Modify serverless.yml**: Change the points in the [serverless.yml](https://gitlab.com/krombacher-brauerei/datascience_krombacher/loyalty/-/blob/master/src/Fraud_Detection/serverless.yml) that are commented with "edit manually."
 
-6. **Container-ARN eintragen**: Tragen Sie die Container-ARN in der serverless.yml unter "resources->Resources->ECSTaskDefinition->Properties->ContainerDefinitions→Image" ein.
+3. **Create Additional Elements**:
+    - **ECS Cluster**: Create an ECS cluster to run the FastAPI application.
+    - **securityGroupIds**:
+        - Allow inbound traffic: Ports 80 (HTTP), 443 (HTTPS), 8000 (Load Balancer).
+        - Outbound rules: Allow all IPv4 traffic.
+    - **TaskRoleArn**: Adjust the policy in this role to control permissions within the FastAPI app.
+    - **ExecutionRoleArn**: This role grants rights to access ECR, ECS, etc., for infrastructure creation.
+    - **Adjust Ports**: Ensure that the container ports are adjusted according to the Docker container.
+4. **Modify Dockerfile**: Adjust the [Dockerfile](https://gitlab.com/krombacher-brauerei/datascience_krombacher/loyalty/-/blob/master/src/Fraud_Detection/Dockerfile) to ensure that all dependencies and the ML model are correctly integrated.
 
-7. **Deployment durchführen**: Führen Sie den Befehl `sls deploy` aus, um die Anwendung in der Cloud bereitzustellen.
+5. **Build App Container**: Follow the steps to build, tag, log in, and push the container. This can be done using Docker commands such as `docker build`, `docker tag`, `docker login`, and `docker push`.
 
-8. **Endpunkt verfügbar machen**: Der Endpunkt ist nun unter der DNS des Load-Balancers verfügbar und kann auf die "unsere" kbpim-Domain gemappt werden.
+6. **Enter Container ARN**: Enter the container ARN in the serverless.yml under "resources->Resources->ECSTaskDefinition->Properties->ContainerDefinitions→Image".
 
-9. **Route 53 konfigurieren**:
-   - Gehen Sie zu Hosted Zones
-   - Erstellen Sie einen Record.
-   - Wählen Sie den Record-Typ A und geben Sie den Namen des Projekts (spätere Subdomain) an, Alias aktivieren.
-   - Leiten Sie den Traffic zum Application Load Balancer (ALB) weiter.
-   - Wählen Sie einfaches Routing.
+7. **Perform Deployment**: Execute the command `sls deploy` to deploy the application in the cloud.
 
-## Architektur
+8. **Make Endpoint Available**: The endpoint is now available under the DNS of the load balancer and can be mapped to the "our" kbpim domain.
 
-Die Architektur der Anwendung sollte so gestaltet sein, dass sie die oben genannten Vorteile und Schritte unterstützt. Eine gut durchdachte Architektur ermöglicht eine effiziente Nutzung der Ressourcen und eine reibungslose Interaktion zwischen den verschiedenen Komponenten der Anwendung. 
+9. **Configure Route 53**:
 
-## Fazit
+    - Go to Hosted Zones.
+    - Create a record.
+    - Select record type A and enter the project name (future subdomain), enable alias.
+    - Route traffic to the Application Load Balancer (ALB).
+    - Choose simple routing.
 
-Die Bereitstellung einer Anwendung mit FastAPI bietet viele Vorteile, darunter Flexibilität, Performance und Kosteneffizienz. Insbesondere für Machine Learning-Modelle ist FastAPI eine ausgezeichnete Wahl, da es eine schnelle Entwicklung und einfache Integration ermöglicht. Trotz einiger Schwächen, wie der Lernkurve und der Performance bei extremen Lasten, bleibt FastAPI ein leistungsstarkes Werkzeug für moderne API-Entwicklung und das Deployment von ML-Modellen.
+## Architecture
+
+The architecture of the application should be designed to support the aforementioned advantages and steps. A well-thought-out architecture enables efficient resource utilization and smooth interaction between the various components of the application.
+
+## Conclusion
+
+Deploying an application with FastAPI offers many advantages, including flexibility, performance, and cost efficiency. Especially for Machine Learning models, FastAPI is an excellent choice as it allows for rapid development and easy integration. Despite some weaknesses, such as the learning curve and performance under extreme loads, FastAPI remains a powerful tool for modern API development and the deployment of ML models.
