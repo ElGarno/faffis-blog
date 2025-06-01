@@ -5,7 +5,7 @@ draft = false
 tags = ["docker", "volumes", "synology", "n8n", "tutorial"]
 description = "Was Docker Volumes sind, warum sie wichtig sind – und wie du sie so nutzt, dass deine Daten dauerhaft sichtbar und gesichert bleiben."
 cover.image = "blog_docker_volumes.webp" 
-cover.alt = Volume Storage, Container, Docker, Host" 
+cover.alt = "Volume Storage, Container, Docker, Host"
 cover.caption = "Volume Storage in Docker: Container-Daten dauerhaft sichern" 
 cover.relative = true
 +++
