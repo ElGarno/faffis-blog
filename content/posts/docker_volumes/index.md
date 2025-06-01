@@ -1,6 +1,6 @@
 +++
 title = "Docker Volumes verstehen: Daten sichtbar und sicher speichern"
-date = 2025-06-01
+date = '2025-06-01T11:45:12+02:00'
 draft = false
 tags = ["docker", "volumes", "synology", "n8n", "tutorial"]
 description = "Was Docker Volumes sind, warum sie wichtig sind – und wie du sie so nutzt, dass deine Daten dauerhaft sichtbar und gesichert bleiben."
