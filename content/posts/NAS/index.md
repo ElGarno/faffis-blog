@@ -1,71 +1,71 @@
 +++
 date = '2025-04-17T13:51:12+02:00'
 draft = false
-title = 'Best docker Container for your NAS'
+title = 'Die besten Docker-Container für dein NAS'
 cover.image = "blog_nas_docker_header_image2.webp" 
-cover.alt = "Docker logos auf einem Server-Rack Hintergrund" 
-cover.caption = "Mein NAS Setup mit Docker" 
+cover.alt = "Docker-Logos auf einem Server-Rack-Hintergrund" 
+cover.caption = "Mein NAS-Setup mit Docker" 
 cover.relative = true
 +++
 
-## Introduction
+## Einführung
 
-Synology NAS devices are not only excellent for backups and data storage but also serve as powerful web servers and platforms for running Docker containers. With the ability to operate 24/7, both your NAS and the Docker containers can remain consistently available. The vast array of available containers can make it challenging to choose the best ones for your needs. In this article, I will introduce you to the containers I use most frequently, including those for ad-blocking, creating a paperless office, managing home automation, and running custom Python code.
+Synology NAS-Geräte sind nicht nur hervorragend für Backups und Datenspeicherung geeignet, sondern dienen auch als leistungsstarke Webserver und Plattformen für Docker-Container. Dank des Dauerbetriebs rund um die Uhr können sowohl dein NAS als auch die Container ständig verfügbar bleiben. Die Vielzahl an verfügbaren Containern macht die Auswahl jedoch nicht leicht. In diesem Artikel stelle ich dir die Container vor, die ich am häufigsten nutze – darunter Tools für Werbeblockierung, papierloses Büro, Heimautomatisierung und eigene Python-Skripte.
 
-## My Top Containers
+## Meine Top-Container
 
-Here are my top picks for Docker containers that enhance the functionality of my NAS:
+Hier sind meine Favoriten unter den Docker-Containern, die die Funktionalität meines NAS erweitern:
 
-- **Home Assistant** (home automation)
-- **Portainer** (managing containers)
-- **Pihole** (security and ad-blocker)
-- **Twingate** (zero-trust network for remote access)
-- **paperless_ngx** (for a paper-free office)
-- **Grafana** (dashboarding)
-- **Database** (PostgreSQL or InfluxDB for time-series data)
-- **Custom Python Code** (packaging your own scripts)
-- **n8n** (automation)
+- **Home Assistant** (Heimautomatisierung)
+- **Portainer** (Container-Verwaltung)
+- **Pihole** (Sicherheit und Werbeblocker)
+- **Twingate** (Zero-Trust-Netzwerk für Fernzugriff)
+- **paperless_ngx** (für ein papierloses Büro)
+- **Grafana** (Dashboarding)
+- **Datenbank** (PostgreSQL oder InfluxDB für Zeitreihendaten)
+- **Eigener Python-Code** (eigene Skripte verpacken)
+- **n8n** (Automatisierung)
 
 ### Portainer
 
 ![Portainer Logo](/images/logos/fixed/portainer.png)
-Portainer is an essential tool for managing your Docker containers. It provides a user-friendly interface where you can view every detail of your stacks and containers, access logs, and deploy new containers with ease.
+Portainer ist ein unverzichtbares Tool zur Verwaltung deiner Docker-Container. Es bietet eine benutzerfreundliche Oberfläche, in der du alle Details deiner Stacks und Container einsehen, Logs abrufen und neue Container einfach bereitstellen kannst.
 
 ### Pihole
 
 ![Pihole Logo](/images/logos/fixed/pihole.png)
-Pihole acts as an ad-blocker for your network, allowing you to block unwanted advertisements and set up specific restrictions or rules for each device connected to your network. This enhances security and improves browsing experiences across all devices.
+Pihole funktioniert als Werbeblocker für dein gesamtes Netzwerk. Du kannst unerwünschte Werbung blockieren und gezielte Regeln oder Einschränkungen für jedes verbundene Gerät definieren. Das verbessert die Sicherheit und das Surferlebnis auf allen Geräten.
 
 ### Twingate
 
 ![Twingate Logo](/images/logos/fixed/twingate.png)
-Twingate offers a zero-trust network solution, enabling secure remote access to your home network. With its mobile app, you can connect safely to your NAS from anywhere, ensuring that your data remains protected.
+Twingate bietet eine Zero-Trust-Netzwerklösung, die einen sicheren Fernzugriff auf dein Heimnetzwerk ermöglicht. Über die Mobile-App kannst du dich jederzeit sicher mit deinem NAS verbinden – von überall aus.
 
 ### paperless-ngx
 
 ![Paperless Logo](/images/logos/fixed/Paperless-ngx.png)
-The paperless-ngx container is perfect for creating a paper-free office. When used with a duplex scanner, it allows for automatic tag generation through plugins and OCR detection, enabling full-text scans and searches. This makes it an excellent solution for storing and managing documents on your NAS.
+Mit dem Container paperless-ngx lässt sich ein papierloses Büro realisieren. In Kombination mit einem Duplex-Scanner ermöglicht er automatische Verschlagwortung mittels Plugins und Texterkennung (OCR), sodass deine Dokumente durchsuchbar und gut strukturiert gespeichert werden können.
 
 ### Grafana
 
 ![Grafana Logo](/images/logos/fixed/Grafana_logo.png)
-Grafana is a well-known dashboarding tool that helps visualize your databases. It offers a wide range of aggregation functionalities and is highly performant, making it ideal for monitoring and analyzing data.
+Grafana ist ein bekanntes Tool für Dashboards und Datenvisualisierung. Es eignet sich hervorragend, um Datenbanken grafisch darzustellen, bietet umfangreiche Aggregationsmöglichkeiten und überzeugt durch hohe Performance.
 
-### Database (PostgreSQL or InfluxDB)
+### Datenbank (PostgreSQL oder InfluxDB)
 
 ![Postgres Logo](/images/logos/fixed/Postgresql.png)
-Having a solid database like PostgreSQL or InfluxDB on your NAS is crucial for storing web content, sensor data, or other information. These databases provide reliable storage solutions for various applications.
+Eine zuverlässige Datenbank wie PostgreSQL oder InfluxDB ist essenziell, um Webinhalte, Sensordaten oder andere Informationen zu speichern. Beide bieten stabile und skalierbare Speicherlösungen für verschiedenste Anwendungen.
 
 ### n8n
 
 ![n8n Logo](/images/logos/fixed/N8n.png)
-n8n is a popular automation tool that allows you to create and run workflows, including those that incorporate AI. It simplifies the process of automating tasks and integrating different services.
+n8n ist ein beliebtes Automatisierungstool, mit dem du Workflows erstellen und ausführen kannst – auch mit KI-Funktionalität. Es vereinfacht die Integration verschiedener Dienste und die Automatisierung von Aufgaben.
 
-### Custom Containers
+### Eigene Container
 
 ![Python Logo](/images/logos/fixed/python-logo2.png)
-For those who want to run their own Python code, creating custom containers is a great option. This allows you to package your scripts and run them seamlessly on your NAS, providing flexibility and control over your applications.
+Wenn du eigenen Python-Code ausführen möchtest, bieten sich eigene Docker-Container an. Damit kannst du deine Skripte in Containern verpacken und nahtlos auf deinem NAS ausführen – maximale Flexibilität inklusive.
 
-## Conclusion
+## Fazit
 
-Utilizing Docker containers on your Synology NAS can significantly enhance its capabilities, transforming it into a versatile server for various applications. Whether you're looking to block ads, automate tasks, or manage your documents, the containers mentioned above can help you achieve a more efficient and organized digital environment.
+Durch die Nutzung von Docker-Containern auf deinem Synology NAS kannst du dessen Möglichkeiten erheblich erweitern und es zu einem vielseitigen Server für unterschiedlichste Anwendungen machen. Ob Werbung blockieren, Aufgaben automatisieren oder Dokumente verwalten – die hier vorgestellten Container helfen dir dabei, dein digitales Leben effizienter und organisierter zu gestalten.

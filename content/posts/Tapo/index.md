@@ -1,41 +1,41 @@
 +++
 date = '2025-04-17T13:51:12+02:00'
 draft = false
-title = 'Energy Monitoring with Tapo Devices'
-cover.image = "header_tapo.png" 
-cover.alt = "Tapo devices for energy monitoring" 
-cover.caption = "Energy Monitoring with Tapo Devices" 
+title = 'Energiemonitoring mit Tapo-Geräten'
+cover.image = "blog_tapo_energy.webp" 
+cover.alt = "Tapo-Geräte zur Energieüberwachung" 
+cover.caption = "Energiemonitoring mit Tapo-Geräten" 
 cover.relative = true
 +++
 
-# Introduction
+# Einführung
 
-In today's world, energy efficiency is more important than ever. With the rise of smart home devices, monitoring and managing energy consumption has become easier and more efficient. In this blog post, we will explore how to utilize Tapo devices for energy monitoring and prediction, leveraging Python, InfluxDB, and Grafana for visualization and alerts.
+In der heutigen Zeit ist Energieeffizienz wichtiger denn je. Mit dem Aufkommen von Smart-Home-Geräten wird das Überwachen und Steuern des Energieverbrauchs einfacher und effizienter. In diesem Blogbeitrag zeige ich, wie sich Tapo-Geräte für das Energiemonitoring und die Verbrauchsprognose einsetzen lassen – unter Verwendung von Python, InfluxDB und Grafana zur Visualisierung und für Benachrichtigungen.
 
-## Resources
+## Ressourcen
 
-To get started, you can use the [Github Python API for Tapo](https://github.com/mihai-dinculescu/tapo). This API allows you to retrieve data from your Tapo devices using Python, making it a powerful tool for energy monitoring.
+Zum Einstieg kannst du die [Github Python API für Tapo](https://github.com/mihai-dinculescu/tapo) verwenden. Diese API ermöglicht es, mit Python auf Daten deiner Tapo-Geräte zuzugreifen – ein leistungsstarkes Werkzeug für das Energiemonitoring.
 
-## Energy Monitoring
+## Energiemonitoring
 
-The core of our energy monitoring system is a Python script that runs in a Docker container on my Synology NAS. This script collects energy consumption data from various devices every 30 seconds and writes it into InfluxDB, a time-series database also hosted on the NAS in a Docker container.
+Das Herzstück unseres Monitoring-Systems ist ein Python-Skript, das in einem Docker-Container auf meinem Synology NAS läuft. Dieses Skript sammelt alle 30 Sekunden Daten zum Stromverbrauch verschiedener Geräte und schreibt sie in InfluxDB – eine Zeitreihendatenbank, die ebenfalls in einem Docker-Container auf dem NAS läuft.
 
-### Setting Up the Environment
+### Einrichtung der Umgebung
 
-1. **Docker Containers**: Both the Python script and InfluxDB run in separate Docker containers, ensuring a clean and isolated environment for each service.
-2. **Data Collection**: The Python script communicates with the Tapo devices to fetch energy consumption data. This data is then timestamped and stored in InfluxDB for further analysis.
-3. **Visualization**: To visualize the collected data, we use Grafana, which connects to InfluxDB and provides a user-friendly dashboard to monitor energy consumption trends over time.
+1. **Docker-Container**: Sowohl das Python-Skript als auch InfluxDB laufen in getrennten Docker-Containern – das sorgt für saubere und isolierte Umgebungen.
+2. **Datenerfassung**: Das Python-Skript kommuniziert mit den Tapo-Geräten, um deren Verbrauchsdaten abzurufen. Diese Daten werden mit Zeitstempel versehen und in InfluxDB gespeichert.
+3. **Visualisierung**: Für die Visualisierung der Daten verwenden wir Grafana. Es verbindet sich mit InfluxDB und bietet ein benutzerfreundliches Dashboard, um Verbrauchstrends über die Zeit darzustellen.
 
-## Other Use Cases
+## Weitere Anwendungsfälle
 
-Beyond simple energy monitoring, the consumption data can be utilized for practical applications, such as sending alerts when appliances like the washing machine or dryer are ready. This is achieved through an over-threshold-under-threshold method:
+Über das einfache Monitoring hinaus können die Verbrauchsdaten auch für praktische Automatisierungen genutzt werden – etwa um Benachrichtigungen zu versenden, wenn Waschmaschine oder Trockner fertig sind. Das funktioniert über eine Über-/Unterschwellen-Erkennung:
 
-1. **Threshold Detection**: When the energy consumption exceeds a predefined threshold, the system recognizes that the appliance is in operation (e.g., the washer is washing or the dryer is drying).
-2. **Completion Detection**: If the energy consumption falls below a smaller threshold and remains there for 5 minutes after the device was turned on, the algorithm determines that the appliance has finished its cycle.
-3. **Alert Notification**: Once the appliance is done, a notification is sent to both me and my wife via "Pushover," ensuring we are informed without having to check the devices manually.
+1. **Erkennung des Betriebsstarts**: Wenn der Stromverbrauch über einen bestimmten Schwellenwert steigt, erkennt das System, dass ein Gerät aktiv ist (z. B. die Waschmaschine wäscht).
+2. **Erkennung des Zyklusendes**: Sinkt der Verbrauch unter einen kleineren Schwellenwert und bleibt dort für 5 Minuten nach Startzeitpunkt, gilt der Zyklus als beendet.
+3. **Benachrichtigung**: Sobald das Gerät fertig ist, wird eine Push-Nachricht per „Pushover“ an mich und meine Frau gesendet – ganz ohne manuelles Nachsehen.
 
-## Conclusion
+## Fazit
 
-By integrating Tapo devices with Python, InfluxDB, and Grafana, we can create a robust energy monitoring and prediction system. This setup not only helps in tracking energy consumption but also enhances our daily lives by providing timely alerts for household appliances. As we continue to embrace smart technology, the potential for energy efficiency and automation is limitless.
+Durch die Kombination von Tapo-Geräten mit Python, InfluxDB und Grafana entsteht ein leistungsfähiges System zur Energieüberwachung und -prognose. Dieses Setup hilft nicht nur beim Tracking des Stromverbrauchs, sondern vereinfacht auch den Alltag durch automatisierte Benachrichtigungen. Mit dem weiteren Ausbau smarter Technologien sind den Möglichkeiten für Energieeffizienz und Automatisierung kaum Grenzen gesetzt.
 
-If you're interested in setting up a similar system or have any questions, feel free to reach out!
+Wenn du ein ähnliches System aufsetzen möchtest oder Fragen hast, melde dich gerne!
