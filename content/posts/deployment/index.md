@@ -9,13 +9,15 @@ cover.relative = true
 tags = ["Deployment", "FastAPI", "Python", "Webentwicklung", "API"]
 +++
 
-## Einführung
-
 In der heutigen digitalen Welt ist das Deployment von Anwendungen entscheidend für den Projekterfolg. FastAPI hat sich als leistungsstarkes Framework für die Entwicklung von APIs etabliert. In diesem Artikel erläutern wir die Vorteile und Schritte für das Deployment einer Anwendung mit FastAPI im Kontext des Loyalty-Projekts der Krombacher Brauerei. Außerdem zeigen wir, warum sich FastAPI besonders gut für das Deployment von Machine-Learning-(ML)-Modellen eignet.
+
+---
 
 ## Funktionaler Anwendungsfall
 
 Eine funktionierende Version des Frameworks ist im Loyalty-Projekt verfügbar.
+
+---
 
 ## Vorteile von FastAPI
 
@@ -28,6 +30,8 @@ Die Nutzung von FastAPI bietet zahlreiche Vorteile:
 - **Besseres Monitoring**: Alle Endpunkte können im ECS-Cluster überwacht werden.
 - **Sicherheitsniveau**: HTTPS und x-api-key bieten ein vergleichbares Sicherheitsniveau.
 - **Eigene Domain**: Die Anwendung kann unter einer eigenen, informationsreichen Domain betrieben werden.
+
+---
 
 ## Warum FastAPI für ML-Modelle?
 
@@ -43,6 +47,8 @@ FastAPI eignet sich besonders gut für das Deployment von Machine-Learning-Model
 
 5. **Skalierbarkeit**: FastAPI-Anwendungen können mit Docker und Kubernetes einfach skaliert werden – wichtig bei schwankender Auslastung.
 
+---
+
 ## Voraussetzungen für das Deployment
 
 Folgende Voraussetzungen sollten für das Deployment erfüllt sein:
@@ -51,6 +57,8 @@ Folgende Voraussetzungen sollten für das Deployment erfüllt sein:
 - **ML-Bibliotheken**: Installation der benötigten Bibliotheken wie TensorFlow oder PyTorch.
 - **Docker**: Für die Containerisierung der Anwendung erforderlich.
 - **Cloud-Dienste**: Zugang zu AWS, Azure oder Google Cloud, wenn eine Cloud-Deployment geplant ist.
+
+---
 
 ## Schwächen von FastAPI
 
@@ -63,6 +71,8 @@ Neben den vielen Vorteilen gibt es auch einige Schwächen:
 3. **Weniger Community-Ressourcen**: Im Vergleich zu älteren Frameworks wie Flask oder Django gibt es weniger Plugins und Beiträge.
 
 4. **Begrenzte integrierte Features**: FastAPI ist bewusst schlank gehalten und bietet keine eingebauten Lösungen für z. B. Authentifizierung oder Datenbankanbindung.
+
+---
 
 ## Schritte für das Deployment
 
@@ -102,9 +112,13 @@ Neben den vielen Vorteilen gibt es auch einige Schwächen:
     - Auf den Application Load Balancer weiterleiten
     - Einfaches Routing auswählen
 
+---
+
 ## Architektur
 
 Die Architektur sollte auf Effizienz und gute Integration aller Komponenten ausgelegt sein. Eine durchdachte Architektur sorgt für optimale Ressourcennutzung und stabile Kommunikation.
+
+---
 
 ## Fazit
 

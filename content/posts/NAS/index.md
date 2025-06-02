@@ -8,9 +8,11 @@ cover.caption = "Mein NAS-Setup mit Docker"
 cover.relative = true
 +++
 
-## Einführung
+## Einleitung
 
 Synology NAS-Geräte sind nicht nur hervorragend für Backups und Datenspeicherung geeignet, sondern dienen auch als leistungsstarke Webserver und Plattformen für Docker-Container. Dank des Dauerbetriebs rund um die Uhr können sowohl dein NAS als auch die Container ständig verfügbar bleiben. Die Vielzahl an verfügbaren Containern macht die Auswahl jedoch nicht leicht. In diesem Artikel stelle ich dir die Container vor, die ich am häufigsten nutze – darunter Tools für Werbeblockierung, papierloses Büro, Heimautomatisierung und eigene Python-Skripte.
+
+---
 
 ## Meine Top-Container
 
@@ -65,6 +67,8 @@ n8n ist ein beliebtes Automatisierungstool, mit dem du Workflows erstellen und a
 
 ![Python Logo](/images/logos/fixed/python-logo2.png)
 Wenn du eigenen Python-Code ausführen möchtest, bieten sich eigene Docker-Container an. Damit kannst du deine Skripte in Containern verpacken und nahtlos auf deinem NAS ausführen – maximale Flexibilität inklusive.
+
+---
 
 ## Fazit
 

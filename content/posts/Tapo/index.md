@@ -8,8 +8,6 @@ cover.caption = "Energiemonitoring mit Tapo-Geräten"
 cover.relative = true
 +++
 
-# Einführung
-
 In der heutigen Zeit ist Energieeffizienz wichtiger denn je. Mit dem Aufkommen von Smart-Home-Geräten wird das Überwachen und Steuern des Energieverbrauchs einfacher und effizienter. In diesem Blogbeitrag zeige ich, wie sich Tapo-Geräte für das Energiemonitoring und die Verbrauchsprognose einsetzen lassen – unter Verwendung von Python, InfluxDB und Grafana zur Visualisierung und für Benachrichtigungen.
 
 ## Ressourcen

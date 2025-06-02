@@ -8,6 +8,7 @@ cover.caption = "YouTube-Videos automatisch in Obsidian Vault übernehmen"
 cover.relative = true
 +++
 
+
 Du nutzt Obsidian als persönlichen Wissensspeicher und möchtest YouTube-Inhalte automatisch als strukturierte und übersetzte Notizen speichern – mit nur einem Terminal-Befehl? Dann ist dieses Setup genau das Richtige für dich.
 
 In dieser Anleitung zeige ich dir, wie du das Open-Source-Tool [Fabric](https://github.com/danielmiessler/fabric) nutzt, um Inhalte aus YouTube-Videos zu extrahieren, ins Deutsche zu übersetzen und direkt als Markdown-Datei in deinem Obsidian Vault zu speichern. Das Ganze basiert auf einem Alias in `.zshrc`, funktioniert aber auch mit jeder anderen Shell.
