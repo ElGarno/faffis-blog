@@ -9,13 +9,7 @@ cover.relative = true
 tags = ["Deployment", "FastAPI", "Python", "Webentwicklung", "API"]
 +++
 
-In der heutigen digitalen Welt ist das Deployment von Anwendungen entscheidend für den Projekterfolg. FastAPI hat sich als leistungsstarkes Framework für die Entwicklung von APIs etabliert. In diesem Artikel erläutern wir die Vorteile und Schritte für das Deployment einer Anwendung mit FastAPI im Kontext des Loyalty-Projekts der Krombacher Brauerei. Außerdem zeigen wir, warum sich FastAPI besonders gut für das Deployment von Machine-Learning-(ML)-Modellen eignet.
-
----
-
-## Funktionaler Anwendungsfall
-
-Eine funktionierende Version des Frameworks ist im Loyalty-Projekt verfügbar.
+In der heutigen digitalen Welt ist das Deployment von Anwendungen entscheidend für den Projekterfolg. FastAPI hat sich als leistungsstarkes Framework für die Entwicklung von APIs etabliert. In diesem Artikel erläutere ich die Vorteile und Schritte für das Deployment einer Anwendung mit FastAPI. Außerdem zeige ich, warum sich FastAPI besonders gut für das Deployment von Machine-Learning-(ML)-Modellen eignet.
 
 ---
 
@@ -78,8 +72,21 @@ Neben den vielen Vorteilen gibt es auch einige Schwächen:
 
 1. **FastAPI-Skript anpassen**: Die API auf deine Anforderungen zuschneiden.
 
-2. **serverless.yml modifizieren**: Änderungen an den Stellen vornehmen, die mit "edit manually" kommentiert sind:  
-   [serverless.yml](https://gitlab.com/krombacher-brauerei/datascience_krombacher/loyalty/-/blob/master/src/Fraud_Detection/serverless.yml)
+2. **serverless.yml modifizieren**: Bei Nutzung des Serverless-Frameworks die `serverless.yml` Datei anpassen. Hier ein Beispiel:
+
+   ```yaml
+   service: my-fastapi-app 
+   provider:
+      name: aws
+      runtime: python3.8
+      region: us-east-1
+      stage: dev
+   functions:
+      api:
+         handler: app.main:app # Der Einstiegspunkt für die FastAPI-Anwendung
+         events: # HTTP-Events definieren
+            - http:...
+   ```  
 
 3. **Zusätzliche Elemente erstellen**:
     - **ECS-Cluster**: Für die Ausführung der App.
@@ -91,7 +98,17 @@ Neben den vielen Vorteilen gibt es auch einige Schwächen:
     - **Ports anpassen**: Docker-Portfreigabe sicherstellen.
 
 4. **Dockerfile anpassen**:  
-   [Dockerfile](https://gitlab.com/krombacher-brauerei/datascience_krombacher/loyalty/-/blob/master/src/Fraud_Detection/Dockerfile)
+   Beispiel-Dockerfile für FastAPI:
+
+   ```dockerfile
+   FROM python:3.8-slim
+   WORKDIR /app
+   COPY requirements.txt .
+   RUN pip install --no-cache-dir -r requirements.txt
+   COPY . .
+   EXPOSE 8000
+   CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+   ```
 
 5. **App-Container bauen**:  
    Mit `docker build`, `docker tag`, `docker login` und `docker push`.
@@ -103,7 +120,7 @@ Neben den vielen Vorteilen gibt es auch einige Schwächen:
    Mit `sls deploy` die App in der Cloud bereitstellen.
 
 8. **Endpoint verfügbar machen**:  
-   Der Endpoint ist über den DNS des Load Balancers erreichbar und kann mit der kbpim-Domain verknüpft werden.
+   Der Endpoint ist über den DNS des Load Balancers erreichbar und kann mit einer definierten Domain verknüpft werden.
 
 9. **Route 53 konfigurieren**:
     - In Hosted Zones gehen
