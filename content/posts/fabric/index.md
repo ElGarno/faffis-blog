@@ -71,6 +71,11 @@ fabric --setup
 
 Das initialisiert die Fabric-Verzeichnisse und Konfigurationsdateien.
 
+Hier können sowhl die API-Schlüssel für OpenAI, DeepL und andere Dienste hinterlegt werden, die Fabric nutzt. Des Weiteren muss für die Extraktion aus YouTube-Videos der YouTube-API-Schlüssel hinterlegt werden. 
+Dieser lässt sich über die Google Cloud Console generieren.
+Dazu musst du ein Projekt erstellen, die YouTube Data API aktivieren und einen API-Schlüssel generieren. 
+⚠️ **Achtung**: Seit 06/25 muss neben dem API-Schlüssel für YouTube auch yt-dlp installiert sein, um die Videos herunterladen zu können. Hier die [Info](https://github.com/danielmiessler/fabric#:~:text=June%2011%2C%202025,%2D%2Dmetadata%20flag).
+
 ---
 
 ## 📁 Eigene Patterns
