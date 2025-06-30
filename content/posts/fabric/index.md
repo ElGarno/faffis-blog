@@ -16,10 +16,12 @@ In dieser Anleitung zeige ich dir, wie du das Open-Source-Tool [Fabric](https://
 ---
 
 ## Warum YouTube-Videos in Obsidian?
+
 YouTube ist eine riesige Wissensquelle, aber oft fehlt die Zeit, um Videos anzusehen oder die wichtigsten Informationen herauszufiltern. Zudem können die Videos direkt "durchsuchbar" gemacht werden, indem sie in Markdown-Dateien umgewandelt werden. So kommen die passenden Inhalte manchmal auch zufällig bei der Suche nach einem bestimmten Thema zum Vorschein.
 **Das Beste: Die in markdown umgewandelten Videos lassen sich mit den aktuellen LLMs (Large Language Models) schnell analysieren, zusammenfassen oder vergleichen.**
 
 Mit diesem Setup kannst du:
+
 - Videos automatisch zusammenfassen
 - Inhalte ins Deutsche übersetzen
 - Ergebnisse direkt in deinem Obsidian Vault speichern
@@ -29,6 +31,7 @@ Mit diesem Setup kannst du:
 ## 🧵 Was ist Fabric?
 
 [Fabric](https://github.com/danielmiessler/fabric) ist ein leistungsstarkes Tool zur KI-gestützten Textanalyse. Es verwendet sogenannte "Patterns", um Inhalte aus verschiedenen Quellen zu extrahieren, zu transformieren und zusammenzufassen. Die Patterns sind wie Vorlagen (vordefinierte Prompts), die dir helfen, spezifische Informationen aus Texten zu extrahieren und zu verarbeiten.  Sie sind komplett in Markdown geschrieben und können leicht angepasst oder komplett neu erstellt werden.
+
 Mit Fabric muss sich also nicht selbst um das perfekte Prompting gekümmert werden. Dieser Teil wird einem durch Fabric abgenommen.
 
 ---
@@ -71,9 +74,11 @@ fabric --setup
 
 Das initialisiert die Fabric-Verzeichnisse und Konfigurationsdateien.
 
-Hier können sowhl die API-Schlüssel für OpenAI, DeepL und andere Dienste hinterlegt werden, die Fabric nutzt. Des Weiteren muss für die Extraktion aus YouTube-Videos der YouTube-API-Schlüssel hinterlegt werden. 
+Hier können sowhl die API-Schlüssel für OpenAI, DeepL und andere Dienste hinterlegt werden, die Fabric nutzt. Des Weiteren muss für die Extraktion aus YouTube-Videos der YouTube-API-Schlüssel hinterlegt werden.
+
 Dieser lässt sich über die Google Cloud Console generieren.
-Dazu musst du ein Projekt erstellen, die YouTube Data API aktivieren und einen API-Schlüssel generieren. 
+Dazu musst du ein Projekt erstellen, die YouTube Data API aktivieren und einen API-Schlüssel generieren.
+
 ⚠️ **Achtung**: Seit 06/25 muss neben dem API-Schlüssel für YouTube auch yt-dlp installiert sein, um die Videos herunterladen zu können. Hier die [Info](https://github.com/danielmiessler/fabric#:~:text=June%2011%2C%202025,%2D%2Dmetadata%20flag).
 
 ---
