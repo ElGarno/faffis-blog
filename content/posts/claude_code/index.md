@@ -2,11 +2,7 @@
 date = '2026-01-17T14:00:00+02:00'
 draft = false
 title = '🤖 Claude Code - Der KI-Entwicklungsassistent direkt im Terminal'
-cover.image = "claude_code_cover.webp"
-cover.alt = "Claude Code Terminal Interface"
-cover.caption = "Claude Code - Agentic Coding im Terminal"
 tags = ["Claude Code", "AI", "Terminal", "Entwicklung", "Anthropic", "CLI"]
-cover.relative = true
 +++
 
 ## Was ist Claude Code?
