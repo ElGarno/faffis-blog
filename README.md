@@ -25,7 +25,7 @@ This blog covers technical topics including:
 
 ### Prerequisites
 
-- [Hugo](https://gohugo.io/installation/) (extended version recommended)
+- [Hugo](https://gohugo.io/installation/) v0.146.0+ (extended version recommended)
 
 ### Development
 
@@ -52,6 +52,14 @@ hugo --minify
 ```
 
 Output is generated in the `public/` directory.
+
+## Deployment (Cloudflare Pages)
+
+Set the following environment variable in your Cloudflare Pages project:
+
+| Variable | Value |
+|----------|-------|
+| `HUGO_VERSION` | `0.146.0` |
 
 ## Project Structure
 
