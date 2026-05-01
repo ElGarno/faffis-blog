@@ -2,3 +2,5 @@ public/
 .env
 resources/
 .idea/
+__pycache__/
+.pytest_cache/
