@@ -27,4 +27,19 @@ check public/projekte/index.html 'Getr'                           'index lists t
 check public/projekte/index.html 'Social-Media-Grafiken'          'index lists the social tools'
 check public/projekte/tcbw-website/index.html 'posts/tcbw-website' 'TCBW page links its blog post'
 
+check public/projekte/index.html 'Eigene Produkte'   'index renders the Produkte group heading'
+check public/projekte/index.html 'Daten & Zuhause'   'index renders the Daten group heading'
+check public/projekte/index.html 'mAI Whisky'        'index lists mAI Tasting'
+check public/projekte/index.html 'Doppelkopf'        'index lists doko-stats'
+
+# The doko-stats page must never identify a member of the group.
+for name in fabiani niax paumpey ooongbaaak hassan86 flipflop86; do
+  if grep -rqi -- "$name" public/projekte/ 2>/dev/null; then
+    echo "FAIL privacy: player name '$name' leaked into the portfolio"
+    fail=1
+  else
+    echo "ok   privacy: '$name' absent"
+  fi
+done
+
 exit $fail
