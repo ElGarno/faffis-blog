@@ -21,4 +21,10 @@ check public/projekte/index.html 'Kinderbasar Biekhofen'       'index lists Kind
 check public/projekte/kinderbasar/index.html 'project-links'   'detail page renders the link bar'
 check public/index.html '>Projekte<'                           'Projekte appears in the main menu'
 
+check public/projekte/index.html 'Vereinswebsite TC Blau-Wei'     'index lists the TCBW website'
+check public/projekte/index.html 'Medenspiel-Planner'             'index lists the Medenspiel-Planner'
+check public/projekte/index.html 'Getr'                           'index lists the drinks app'
+check public/projekte/index.html 'Social-Media-Grafiken'          'index lists the social tools'
+check public/projekte/tcbw-website/index.html 'posts/tcbw-website' 'TCBW page links its blog post'
+
 exit $fail
