@@ -1,0 +1,27 @@
+{{- define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+
+{{- with .Content }}
+<div class="post-content">{{ . }}</div>
+{{- end }}
+
+{{- $groups := slice
+      (dict "key" "vereine"  "title" "Vereine & Gemeinwohl")
+      (dict "key" "produkte" "title" "Eigene Produkte")
+      (dict "key" "daten"    "title" "Daten & Zuhause") }}
+
+{{- range $g := $groups }}
+  {{- $pages := sort (where $.RegularPages "Params.gruppe" $g.key) "Weight" }}
+  {{- with $pages }}
+<section class="project-group">
+  <h2 class="project-group-title">{{ $g.title }}</h2>
+  <div class="project-grid">
+    {{- range . }}{{ partial "project-card.html" . }}{{ end }}
+  </div>
+</section>
+  {{- end }}
+{{- end }}
+
+{{- end }}

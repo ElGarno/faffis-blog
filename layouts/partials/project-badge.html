@@ -1,0 +1,5 @@
+{{- /* Renders one status pill. Context: the status string. */ -}}
+{{- $labels := dict "live" "Live im Einsatz" "appstore" "Im App Store" "wip" "In Arbeit" -}}
+{{- with . -}}
+<span class="project-badge project-badge--{{ . }}">{{ index $labels . | default . }}</span>
+{{- end -}}
