@@ -22,6 +22,7 @@
 - **Commits require explicit approval.** The user's CLAUDE.md forbids unrequested commits. Every commit step below is conditional: stage the files, show `git status` and the proposed message, and only run `git commit` once the user says yes in this session.
 - **One deviation from the spec:** the spec lists four new template files; this plan creates five. The status pill was pulled out into `layouts/partials/project-badge.html` because both the card partial and the detail template render it, and duplicating the label mapping in two files is how the two drift apart.
 - **Hugo binary.** The machine's `hugo` is 0.166.0, which breaks PaperMod's `rss.xml`; production uses 0.146.0. A pinned 0.146.0 binary lives in the session scratchpad and every build must use it: `export HUGO_BIN=<scratchpad>/hugo146/hugo`. `scripts/check_projekte.sh` honours `${HUGO_BIN:-hugo}`, so it still works unmodified on CI.
+- **Counting occurrences in built HTML.** Minified HTML is one single line, so `grep -c` always reports `1`. Count with `grep -o '<needle>' <file> | wc -l`. `grep -q` for mere existence is fine.
 - **The check script always builds minified**, so the rendered HTML has unquoted attributes (`class=project-grid`, not `class="project-grid"`). Grep needles must never include `class="`.
 - **Verification command used throughout:** `"$HUGO_BIN" --gc --minify` from the repo root must finish with zero errors and zero warnings.
 
@@ -804,8 +805,10 @@ Expected: all checks `ok`, including the six privacy guards.
 
 - [ ] **Step 5: Count the cards**
 
-Run: `grep -c 'class=project-card>' public/projekte/index.html`
+Run: `grep -o 'class=project-card>' public/projekte/index.html | wc -l`
 Expected: `11`
+
+Note: `grep -c` counts matching LINES, and minified HTML is a single line — it would report `1`. Always count occurrences with `grep -o ... | wc -l`.
 
 - [ ] **Step 6: Stage and propose the commit**
 
@@ -853,7 +856,7 @@ for word in Honorar Rechnung Angebot Leistungen Preis beauftragen; do
 done
 
 # Exactly the five club projects, not all eleven.
-n=$(grep -c 'class=project-card>' public/fuer-vereine/index.html)
+n=$(grep -o 'class=project-card>' public/fuer-vereine/index.html | wc -l | tr -d ' ')
 if [ "$n" = "5" ]; then echo "ok   Vereins-Seite shows 5 cards"; else echo "FAIL expected 5 cards, got $n"; fail=1; fi
 ```
 
@@ -1284,7 +1287,7 @@ Expected: three lines, each `WEBP (1200, 675)`, no assertion error.
 Run: `./scripts/check_projekte.sh`
 Expected: all checks `ok`.
 
-Then: `grep -c 'project-card-cover--empty' public/projekte/index.html`
+Then: `grep -o 'project-card-cover--empty' public/projekte/index.html | wc -l`
 Expected: `8` (eleven cards minus the three now covered).
 
 - [ ] **Step 6: Stage and propose the commit**
@@ -1624,10 +1627,10 @@ print('all 11 covers present and normalised')
 
 ```bash
 ./scripts/check_projekte.sh
-grep -c 'project-card-cover--empty' public/projekte/index.html || true
+grep -o 'project-card-cover--empty' public/projekte/index.html | wc -l
 ```
 
-Expected: every check `ok`; the placeholder count is `0` (grep exits 1 when it finds nothing, hence the `|| true`).
+Expected: every check `ok`; the placeholder count is `0`.
 
 - [ ] **Step 7: Check every internal link resolves**
 
