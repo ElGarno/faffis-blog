@@ -6,3 +6,4 @@ title = 'Faffis Blog'
 
 [params]
     customCSS = ["css/extended/custom.css"]
+    mainSections = ["posts"]

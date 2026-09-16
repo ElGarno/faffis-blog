@@ -1,0 +1,27 @@
+{{- /* Renders one project card. Context: a project Page. */ -}}
+{{- $p := . -}}
+{{- $coverName := $p.Param "cover.image" | default "cover.webp" -}}
+{{- $cover := $p.Resources.GetMatch $coverName -}}
+<article class="project-card">
+  <a class="project-card-link" href="{{ $p.RelPermalink }}">
+    {{- with $cover }}
+    <img class="project-card-cover" src="{{ .RelPermalink }}"
+         alt="{{ $p.Param "cover.alt" | default $p.Title }}" loading="lazy">
+    {{- else }}
+    <div class="project-card-cover project-card-cover--empty" aria-hidden="true"></div>
+    {{- end }}
+    <div class="project-card-body">
+      <h3 class="project-card-title">{{ $p.Title }}</h3>
+      {{- with $p.Params.tagline }}
+      <p class="project-card-tagline">{{ . }}</p>
+      {{- end }}
+      <div class="project-card-meta">
+        {{- partial "project-badge.html" $p.Params.status }}
+        {{- with $p.Params.zeitraum }}<span class="project-zeitraum">{{ . }}</span>{{ end }}
+      </div>
+      {{- with $p.Params.stack }}
+      <ul class="project-stack">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+      {{- end }}
+    </div>
+  </a>
+</article>

@@ -10,6 +10,7 @@ from generate_covers import (
     SLUG_PROMPTS,
     STYLE_PREFIX,
     build_prompt,
+    cover_path,
     png_bytes_to_webp,
 )
 
@@ -38,3 +39,29 @@ def test_png_bytes_to_webp_writes_valid_webp(tmp_path: Path) -> None:
     with Image.open(target) as out:
         assert out.format == "WEBP"
         assert out.size == (1024, 1024)
+
+
+def test_png_bytes_to_webp_crops_square_source_for_cover(tmp_path: Path) -> None:
+    # gpt-image-1 only ever returns a square image; a "projekte" cover must
+    # be cropped to the portfolio's 1200x675 ratio instead of staying square.
+    img = Image.new("RGB", (1024, 1024), color=(0, 0, 255))
+    buf = BytesIO()
+    img.save(buf, format="PNG")
+    png_bytes = buf.getvalue()
+
+    target = tmp_path / "cover.webp"
+    png_bytes_to_webp(png_bytes, target, crop_for_cover=True)
+
+    assert target.exists()
+    with Image.open(target) as out:
+        assert out.format == "WEBP"
+        assert out.size == (1200, 675)
+
+
+def test_cover_path_targets_the_requested_section() -> None:
+    assert cover_path("doko-stats", "projekte").parts[-3:] == (
+        "projekte",
+        "doko-stats",
+        "cover.webp",
+    )
+    assert cover_path("Tapo").parts[-3:] == ("posts", "Tapo", "cover.webp")

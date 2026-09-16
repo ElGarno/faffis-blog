@@ -1,0 +1,7 @@
+{{- /* Embeds the cards of one project group. Usage: {{< projektkarten gruppe="vereine" >}} */ -}}
+{{- $gruppe := .Get "gruppe" -}}
+{{- $projekte := where site.RegularPages "Section" "projekte" -}}
+{{- $pages := sort (where $projekte "Params.gruppe" $gruppe) "Weight" -}}
+<div class="project-grid">
+  {{- range $pages }}{{ partial "project-card.html" . }}{{ end }}
+</div>

@@ -34,3 +34,203 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+/* === Portfolio: Projektkarten und Projektseiten === */
+
+.project-group {
+    margin: 2.5rem 0;
+}
+
+.project-group-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.15s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+}
+
+.project-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.project-card-cover {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.project-card-cover--empty {
+    background: var(--code-bg);
+}
+
+.project-card-body {
+    padding: 1rem;
+}
+
+.project-card-title {
+    margin: 0 0 0.35rem;
+    font-size: 1.1rem;
+}
+
+.project-card-tagline {
+    margin: 0 0 0.75rem;
+    color: var(--secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.project-card-meta,
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    color: var(--primary);
+    background: var(--code-bg);
+}
+
+/* Colours are split by theme rather than shared, because a single hue
+   cannot clear 4.5:1 against both the light --entry (#fff) and the dark
+   --entry (rgb(46,46,51)) card background at once. PaperMod switches theme
+   by toggling a `dark` class on <body> (see header.html), not via
+   prefers-color-scheme, so that is the selector used here too. */
+.project-badge--live {
+    border-color: #1e7a46;
+    color: #1e7a46;
+}
+
+.project-badge--appstore {
+    border-color: #1f5f9e;
+    color: #1f5f9e;
+}
+
+.project-badge--wip {
+    border-color: #8a5a00;
+    color: #8a5a00;
+}
+
+body.dark .project-badge--live {
+    border-color: #7cd99c;
+    color: #7cd99c;
+}
+
+body.dark .project-badge--appstore {
+    border-color: #8ac2f5;
+    color: #8ac2f5;
+}
+
+body.dark .project-badge--wip {
+    border-color: #f0c169;
+    color: #f0c169;
+}
+
+.project-zeitraum {
+    font-size: 0.8rem;
+    color: var(--secondary);
+}
+
+.project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.project-stack li {
+    font-size: 0.72rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    background: var(--code-bg);
+    color: var(--secondary);
+}
+
+/* Override PaperMod's ".post-content ul" (0,1,1) which otherwise outranks
+   ".project-stack" (0,1,0) when the shortcode is embedded on /fuer-vereine/. */
+.post-content .project-stack {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.post-content .project-stack li {
+    margin-top: 0;
+}
+
+.project-cover {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto 2em auto;
+    display: block;
+}
+
+.project-gallery {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.project-gallery img {
+    flex: 0 0 auto;
+    width: 240px;
+    height: auto;
+    border-radius: 12px;
+    scroll-snap-align: start;
+    border: 1px solid var(--border);
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.project-link {
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    box-shadow: none;
+    color: var(--primary);
+}
+
+.project-link:hover {
+    background: var(--code-bg);
+}

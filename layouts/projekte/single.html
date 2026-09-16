@@ -1,0 +1,45 @@
+{{- define "main" }}
+{{- $coverName := .Param "cover.image" | default "cover.webp" }}
+{{- $cover := .Resources.GetMatch $coverName }}
+{{- $coverAlt := .Param "cover.alt" | default .Title }}
+<article class="post-single project-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- with .Params.tagline }}
+    <div class="post-description">{{ . }}</div>
+    {{- end }}
+    <div class="project-meta">
+      {{- partial "project-badge.html" .Params.status }}
+      {{- with .Params.zeitraum }}<span class="project-zeitraum">{{ . }}</span>{{ end }}
+      {{- with .Params.stack }}
+      <ul class="project-stack">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>
+      {{- end }}
+    </div>
+  </header>
+
+  {{- with $cover }}
+  <img class="project-cover" src="{{ .RelPermalink }}" alt="{{ $coverAlt }}" loading="lazy">
+  {{- end }}
+
+  <div class="post-content">{{ .Content }}</div>
+
+  {{- with .Resources.Match "shot-*.webp" }}
+  <div class="project-gallery">
+    {{- range $i, $r := . }}<img src="{{ $r.RelPermalink }}" alt="{{ $.Title }} — Screenshot {{ add $i 1 }}" loading="lazy">{{ end }}
+  </div>
+  {{- end }}
+
+  <div class="project-links">
+    {{- with .Params.live_url }}
+    <a class="project-link" href="{{ . }}" rel="noopener noreferrer" target="_blank">Live ansehen</a>
+    {{- end }}
+    {{- with .Params.repo_url }}
+    <a class="project-link" href="{{ . }}" rel="noopener noreferrer" target="_blank">Quellcode</a>
+    {{- end }}
+    {{- with .Params.post_url }}
+    <a class="project-link" href="{{ . | relURL }}">Ausführlicher Blogpost</a>
+    {{- end }}
+  </div>
+</article>
+{{- end }}

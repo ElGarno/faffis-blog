@@ -20,12 +20,15 @@ import argparse
 import base64
 import os
 import sys
+import tempfile
 from io import BytesIO
 from pathlib import Path
 
 from dotenv import load_dotenv
 from openai import OpenAI
 from PIL import Image
+
+from shot_to_cover import crop_to_cover
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = REPO_ROOT / "content" / "posts"
@@ -57,6 +60,14 @@ SLUG_PROMPTS: dict[str, str] = {
         "whisky and wine bottle silhouettes with AI/vision overlay, "
         "abstract neural patterns"
     ),
+    "solar-prediction": (
+        "solar panels under a forecast sky, a rising prediction curve overlaid, "
+        "hourly bars beneath it"
+    ),
+    "doko-stats": (
+        "abstract playing cards fanned out, turning into a bar chart, "
+        "no faces, no text, no suits that resemble a real brand"
+    ),
 }
 
 COST_PER_IMAGE_USD = 0.04
@@ -67,11 +78,31 @@ def build_prompt(slug: str) -> str:
     return f"{STYLE_PREFIX} Topic: {SLUG_PROMPTS[slug]}"
 
 
-def png_bytes_to_webp(png_bytes: bytes, target: Path) -> None:
-    """Convert PNG bytes to WebP file at target path."""
+def png_bytes_to_webp(
+    png_bytes: bytes, target: Path, *, crop_for_cover: bool = False
+) -> None:
+    """Convert PNG bytes to WebP file at target path.
+
+    gpt-image-1 only produces square images. Plain posts historically kept
+    that native square as-is, but a "projekte" cover must be a 1200x675
+    16:9 image (see layouts/projekte/*.html and project-card CSS), so
+    crop_for_cover=True center-crops it via shot_to_cover.crop_to_cover
+    instead of saving the untouched square. Center, not top: the square
+    source has its subject in the middle, and a top crop cuts it off.
+    """
     target.parent.mkdir(parents=True, exist_ok=True)
-    with Image.open(BytesIO(png_bytes)) as img:
-        img.save(target, format="WEBP", quality=85, method=6)
+    if not crop_for_cover:
+        with Image.open(BytesIO(png_bytes)) as img:
+            img.save(target, format="WEBP", quality=85, method=6)
+        return
+
+    with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
+        tmp.write(png_bytes)
+        tmp_path = Path(tmp.name)
+    try:
+        crop_to_cover(tmp_path, target, anchor="center")
+    finally:
+        tmp_path.unlink(missing_ok=True)
 
 
 def generate_image(client: OpenAI, slug: str) -> bytes:
@@ -91,8 +122,8 @@ def generate_image(client: OpenAI, slug: str) -> bytes:
     return base64.b64decode(b64)
 
 
-def cover_path(slug: str) -> Path:
-    return POSTS_DIR / slug / "cover.webp"
+def cover_path(slug: str, section: str = "posts") -> Path:
+    return REPO_ROOT / "content" / section / slug / "cover.webp"
 
 
 def main() -> int:
@@ -107,6 +138,10 @@ def main() -> int:
         action="store_true",
         help="Overwrite existing cover.webp",
     )
+    parser.add_argument(
+        "--section", default="posts", choices=["posts", "projekte"],
+        help="Content section to write covers into",
+    )
     args = parser.parse_args()
 
     load_dotenv(REPO_ROOT / ".env")
@@ -120,13 +155,13 @@ def main() -> int:
     generated = 0
 
     for slug in slugs:
-        target = cover_path(slug)
+        target = cover_path(slug, args.section)
         if target.exists() and not args.force:
             print(f"[skip] {slug}: {target.relative_to(REPO_ROOT)} exists")
             continue
         print(f"[gen ] {slug}: calling gpt-image-1 ...")
         png = generate_image(client, slug)
-        png_bytes_to_webp(png, target)
+        png_bytes_to_webp(png, target, crop_for_cover=(args.section == "projekte"))
         generated += 1
         print(f"[ok  ] {slug}: wrote {target.relative_to(REPO_ROOT)}")
 
