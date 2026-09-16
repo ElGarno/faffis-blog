@@ -2,8 +2,9 @@
 
 from pathlib import Path
 
+import shot_to_cover
 from PIL import Image
-from shot_to_cover import compose_phone_cover, crop_to_cover, to_gallery_shot
+from shot_to_cover import compose_phone_cover, crop_to_cover, main, to_gallery_shot
 
 
 def _make(path: Path, size: tuple[int, int], color: tuple[int, int, int]) -> Path:
@@ -58,6 +59,29 @@ def test_crop_to_cover_center_anchor_keeps_middle_of_square(tmp_path: Path) -> N
     target = tmp_path / "cover.webp"
 
     crop_to_cover(src, target, anchor="center")
+
+    with Image.open(target) as out:
+        assert out.size == (1200, 675)
+        r, g, b = out.getpixel((600, 337))
+        assert r > 150 and g < 100 and b < 100
+
+
+def test_cli_crop_honours_anchor_flag(tmp_path: Path, monkeypatch) -> None:
+    # Same square/red-band fixture as the center-anchor unit test above, but
+    # driven through the CLI's argv parsing to prove --anchor is wired up.
+    src = tmp_path / "square.png"
+    img = Image.new("RGB", (1024, 1024), (255, 255, 255))
+    band_top = (1024 - 300) // 2
+    for y in range(band_top, band_top + 300):
+        for x in range(1024):
+            img.putpixel((x, y), (255, 0, 0))
+    img.save(src, format="PNG")
+    target = tmp_path / "cover.webp"
+
+    monkeypatch.setattr(
+        shot_to_cover.sys, "argv", ["shot_to_cover.py", "crop", str(src), str(target), "--anchor", "center"]
+    )
+    assert main() == 0
 
     with Image.open(target) as out:
         assert out.size == (1200, 675)

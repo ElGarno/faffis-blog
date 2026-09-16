@@ -125,6 +125,13 @@ def main() -> int:
     p_crop = sub.add_parser("crop", help="landscape capture -> 16:9 cover")
     p_crop.add_argument("src", type=Path)
     p_crop.add_argument("target", type=Path)
+    p_crop.add_argument(
+        "--anchor",
+        choices=("top", "center"),
+        default="top",
+        help="crop anchor: 'top' (default) for full-page screenshots, "
+        "'center' for square sources with a centred subject",
+    )
 
     p_phones = sub.add_parser("phones", help="portrait frames -> 16:9 cover")
     p_phones.add_argument("target", type=Path)
@@ -139,7 +146,7 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.mode == "crop":
-        crop_to_cover(args.src, args.target)
+        crop_to_cover(args.src, args.target, anchor=args.anchor)
     elif args.mode == "phones":
         compose_phone_cover(
             args.sources, args.target, background=_hex_to_rgb(args.background)

@@ -18,11 +18,11 @@ cover.alt = "Startseite des TC Blau-Weiß Attendorn"
 
 ## Problem
 
-Die alte Vereinsseite lief auf WordPress: langsam, ständig Plugin-Updates, unklarer
-Sicherheitsstatus. Im Vorstand wollte niemand PHP-Versionen und Datenbank-Backups
-betreuen, und gleichzeitig mussten nicht-technische Vorstandsmitglieder Aktuelles,
-Mannschaften und Termine selbst pflegen können. Dazu die Anforderung, dass das Hosting
-nichts kostet und nichts kaputtgeht, wenn ein halbes Jahr niemand hinschaut.
+Die alte Vereinsseite lief auf WordPress, aber genutzt hat sie kaum noch jemand:
+unübersichtlich gewachsen, mit veralteten Inhalten, und sicherheitstechnisch war das
+schon lange nicht mehr zu verantworten. Im Vorstand wollte sich niemand um PHP-Versionen
+und Plugin-Updates kümmern. Dazu die Anforderung, dass das Hosting nichts kostet und
+nichts kaputtgeht, wenn ein halbes Jahr niemand hinschaut.
 
 ## Lösung
 
@@ -34,6 +34,9 @@ das bei jedem Push neu baut.
 
 ## Ergebnis
 
-Läuft unter tc-bw-attendorn.de. Das Hosting kostet nichts, die Seite lädt sofort, und
-zwei Leute im Vorstand pflegen die Inhalte ohne Rückfrage. Die Mannschaftsdaten aus dem
-Repo werden inzwischen auch von den Social-Tools weiterverwendet.
+Läuft unter tc-bw-attendorn.de, das Hosting kostet nichts. Der laufende Betrieb besteht
+vor allem daraus, automatisch erzeugte Pull Requests zu bestätigen: Spielergebnisse
+zieht die Seite selbstständig von nuLiga, und eine eingehende Vorstandsmail löst einen
+Agenten aus, der sie in Termine, Infos und Sonstiges zerlegt und als Änderungsvorschlag
+einarbeitet. Die Mannschaftsdaten aus dem Repo verwenden inzwischen auch die
+Social-Tools weiter.
