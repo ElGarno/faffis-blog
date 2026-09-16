@@ -52,12 +52,6 @@
     gap: 1.5rem;
 }
 
-@media (max-width: 480px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 .project-card {
     background: var(--entry);
     border: 1px solid var(--border);
@@ -124,19 +118,39 @@
     background: var(--code-bg);
 }
 
+/* Colours are split by theme rather than shared, because a single hue
+   cannot clear 4.5:1 against both the light --entry (#fff) and the dark
+   --entry (rgb(46,46,51)) card background at once. PaperMod switches theme
+   by toggling a `dark` class on <body> (see header.html), not via
+   prefers-color-scheme, so that is the selector used here too. */
 .project-badge--live {
-    border-color: #3f8f5f;
-    color: #3f8f5f;
+    border-color: #1e7a46;
+    color: #1e7a46;
 }
 
 .project-badge--appstore {
-    border-color: #3a6ea5;
-    color: #3a6ea5;
+    border-color: #1f5f9e;
+    color: #1f5f9e;
 }
 
 .project-badge--wip {
-    border-color: #b07d2b;
-    color: #b07d2b;
+    border-color: #8a5a00;
+    color: #8a5a00;
+}
+
+body.dark .project-badge--live {
+    border-color: #7cd99c;
+    color: #7cd99c;
+}
+
+body.dark .project-badge--appstore {
+    border-color: #8ac2f5;
+    color: #8ac2f5;
+}
+
+body.dark .project-badge--wip {
+    border-color: #f0c169;
+    color: #f0c169;
 }
 
 .project-zeitraum {
@@ -159,6 +173,18 @@
     border-radius: 4px;
     background: var(--code-bg);
     color: var(--secondary);
+}
+
+/* Override PaperMod's ".post-content ul" (0,1,1) which otherwise outranks
+   ".project-stack" (0,1,0) when the shortcode is embedded on /fuer-vereine/. */
+.post-content .project-stack {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.post-content .project-stack li {
+    margin-top: 0;
 }
 
 .project-cover {

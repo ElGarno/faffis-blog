@@ -45,6 +45,26 @@ def test_crop_to_cover_keeps_top_of_tall_capture(tmp_path: Path) -> None:
         assert r > 150 and g < 100 and b < 100
 
 
+def test_crop_to_cover_center_anchor_keeps_middle_of_square(tmp_path: Path) -> None:
+    # A square AI-generated source has its subject in the middle; anchor="center"
+    # must keep that middle band instead of the top() default's top slice.
+    src = tmp_path / "square.png"
+    img = Image.new("RGB", (1024, 1024), (255, 255, 255))
+    band_top = (1024 - 300) // 2
+    for y in range(band_top, band_top + 300):
+        for x in range(1024):
+            img.putpixel((x, y), (255, 0, 0))
+    img.save(src, format="PNG")
+    target = tmp_path / "cover.webp"
+
+    crop_to_cover(src, target, anchor="center")
+
+    with Image.open(target) as out:
+        assert out.size == (1200, 675)
+        r, g, b = out.getpixel((600, 337))
+        assert r > 150 and g < 100 and b < 100
+
+
 def test_compose_phone_cover_lays_out_three_frames(tmp_path: Path) -> None:
     sources = [
         _make(tmp_path / f"p{i}.png", (1290, 2796), (200, 100, 50)) for i in range(3)

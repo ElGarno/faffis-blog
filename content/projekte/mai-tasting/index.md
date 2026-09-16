@@ -13,7 +13,7 @@ repo_url = ""
 post_url = "/posts/mai-tasting/"
 cover.image = "cover.webp"
 cover.relative = true
-cover.alt = "Flaschendetail mit Aromen-Radar in der mAI-Whisky-App"
+cover.alt = "Drei App-Screens von mAI Whisky: Sammlung, Verkostung und Geschmacksprofil mit Radar-Chart"
 +++
 
 ## Problem

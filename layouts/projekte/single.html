@@ -26,7 +26,7 @@
 
   {{- with .Resources.Match "shot-*.webp" }}
   <div class="project-gallery">
-    {{- range . }}<img src="{{ .RelPermalink }}" alt="" loading="lazy">{{ end }}
+    {{- range $i, $r := . }}<img src="{{ $r.RelPermalink }}" alt="{{ $.Title }} — Screenshot {{ add $i 1 }}" loading="lazy">{{ end }}
   </div>
   {{- end }}
 

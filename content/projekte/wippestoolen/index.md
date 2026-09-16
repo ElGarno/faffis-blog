@@ -7,13 +7,13 @@ gruppe = "produkte"
 status = "wip"
 zeitraum = "2026"
 weight = 30
-stack = ["FastAPI", "Postgres", "Vercel"]
+stack = ["FastAPI", "Postgres", "Railway", "Vercel"]
 live_url = "https://wippestoolen.vercel.app"
 repo_url = ""
 post_url = "/posts/wippestoolen/"
 cover.image = "cover.webp"
 cover.relative = true
-cover.alt = "Kartenansicht mit verfügbarem Werkzeug in der Nachbarschaft"
+cover.alt = "Startseite von Wippestoolen mit dem Hero-Text „Leihen Sie was Sie brauchen, teilen Sie was Sie haben“"
 +++
 
 ## Problem

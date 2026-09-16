@@ -13,7 +13,7 @@ repo_url = ""
 post_url = "/posts/tcbw-getraenkebuchung/"
 cover.image = "cover.webp"
 cover.relative = true
-cover.alt = "Kiosk-Ansicht der Getränkebuchung auf dem iPad"
+cover.alt = "Illustration eines Tablets mit Getränkesymbol neben Tennisball und -schläger, per Funksymbol mit einem Becher verbunden"
 +++
 
 ## Problem

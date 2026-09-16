@@ -20,12 +20,15 @@ import argparse
 import base64
 import os
 import sys
+import tempfile
 from io import BytesIO
 from pathlib import Path
 
 from dotenv import load_dotenv
 from openai import OpenAI
 from PIL import Image
+
+from shot_to_cover import crop_to_cover
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 POSTS_DIR = REPO_ROOT / "content" / "posts"
@@ -75,11 +78,31 @@ def build_prompt(slug: str) -> str:
     return f"{STYLE_PREFIX} Topic: {SLUG_PROMPTS[slug]}"
 
 
-def png_bytes_to_webp(png_bytes: bytes, target: Path) -> None:
-    """Convert PNG bytes to WebP file at target path."""
+def png_bytes_to_webp(
+    png_bytes: bytes, target: Path, *, crop_for_cover: bool = False
+) -> None:
+    """Convert PNG bytes to WebP file at target path.
+
+    gpt-image-1 only produces square images. Plain posts historically kept
+    that native square as-is, but a "projekte" cover must be a 1200x675
+    16:9 image (see layouts/projekte/*.html and project-card CSS), so
+    crop_for_cover=True center-crops it via shot_to_cover.crop_to_cover
+    instead of saving the untouched square. Center, not top: the square
+    source has its subject in the middle, and a top crop cuts it off.
+    """
     target.parent.mkdir(parents=True, exist_ok=True)
-    with Image.open(BytesIO(png_bytes)) as img:
-        img.save(target, format="WEBP", quality=85, method=6)
+    if not crop_for_cover:
+        with Image.open(BytesIO(png_bytes)) as img:
+            img.save(target, format="WEBP", quality=85, method=6)
+        return
+
+    with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp:
+        tmp.write(png_bytes)
+        tmp_path = Path(tmp.name)
+    try:
+        crop_to_cover(tmp_path, target, anchor="center")
+    finally:
+        tmp_path.unlink(missing_ok=True)
 
 
 def generate_image(client: OpenAI, slug: str) -> bytes:
@@ -138,7 +161,7 @@ def main() -> int:
             continue
         print(f"[gen ] {slug}: calling gpt-image-1 ...")
         png = generate_image(client, slug)
-        png_bytes_to_webp(png, target)
+        png_bytes_to_webp(png, target, crop_for_cover=(args.section == "projekte"))
         generated += 1
         print(f"[ok  ] {slug}: wrote {target.relative_to(REPO_ROOT)}")
 

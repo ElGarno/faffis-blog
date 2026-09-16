@@ -4,7 +4,7 @@ date = 2026-09-15T10:00:00+02:00
 draft = false
 tagline = "KI-generierte Bilderbücher, vorgelesen"
 gruppe = "produkte"
-status = "wip"
+status = "archiv"
 zeitraum = "2023–2025"
 weight = 20
 stack = ["Streamlit", "DALL·E 3", "ElevenLabs", "DuckDB"]
@@ -13,7 +13,7 @@ repo_url = "https://github.com/ElGarno/NarrAItive"
 post_url = "/posts/narraitive/"
 cover.image = "cover.webp"
 cover.relative = true
-cover.alt = "Generiertes Bilderbuch-Kapitel in der NarrAItive-Oberfläche"
+cover.alt = "Illustration eines Kindes, das ein Bilderbuch liest, darüber eine Glühbirne als Ideen-Symbol"
 +++
 
 ## Problem

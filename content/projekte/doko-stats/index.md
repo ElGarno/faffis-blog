@@ -13,7 +13,7 @@ repo_url = ""
 post_url = ""
 cover.image = "cover.webp"
 cover.relative = true
-cover.alt = "Auswertung der Punkteverläufe im Doppelkopf-Dashboard"
+cover.alt = "Verteilung der Spielarten und Übersicht der Spielabende im Doppelkopf-Dashboard"
 +++
 
 ## Problem

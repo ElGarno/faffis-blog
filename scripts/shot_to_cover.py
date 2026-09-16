@@ -32,16 +32,29 @@ def _save(img: Image.Image, target: Path) -> None:
 
 
 def crop_to_cover(
-    src: Path, target: Path, size: tuple[int, int] = COVER_SIZE
+    src: Path,
+    target: Path,
+    size: tuple[int, int] = COVER_SIZE,
+    anchor: str = "top",
 ) -> None:
-    """Scale a landscape capture to the target width, then crop from the top."""
+    """Scale a landscape capture to the target width, then crop to the height.
+
+    anchor="top" (default) keeps the top of the scaled image, which is right
+    for a full-page screenshot where the interesting content starts at the
+    top. anchor="center" crops symmetrically instead; use that for a square
+    source (e.g. a gpt-image-1 generation), where the subject usually sits
+    in the middle of the frame and a top crop would cut it off.
+    """
+    if anchor not in ("top", "center"):
+        raise ValueError(f"unknown anchor {anchor!r}")
     with Image.open(src) as img:
         rgb = img.convert("RGB")
         scale = size[0] / rgb.width
         scaled = rgb.resize(
             (size[0], max(size[1], round(rgb.height * scale))), Image.LANCZOS
         )
-        cover = scaled.crop((0, 0, size[0], size[1]))
+        top = (scaled.height - size[1]) // 2 if anchor == "center" else 0
+        cover = scaled.crop((0, top, size[0], top + size[1]))
     # Saved outside the with-block so src may be the same path as target.
     _save(cover, target)
 

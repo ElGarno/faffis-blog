@@ -2,7 +2,7 @@
 title = "Kinderbasar Biekhofen"
 date = 2026-09-15T10:00:00+02:00
 draft = false
-tagline = "Anmeldung, Kasse und Abrechnung für einen Kinderflohmarkt mit über hundert Verkäufern"
+tagline = "Anmeldung, Kasse und Abrechnung für einen Kinderflohmarkt"
 gruppe = "vereine"
 status = "live"
 zeitraum = "2026"

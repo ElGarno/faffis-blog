@@ -13,7 +13,7 @@ repo_url = "https://github.com/ElGarno/MyTapo"
 post_url = "/posts/tapo/"
 cover.image = "cover.webp"
 cover.relative = true
-cover.alt = "Grafana-Ansicht der erkannten Geräte-Events"
+cover.alt = "Illustration einer smarten Steckdose vor einer Verbrauchskurve mit Uhr-Symbol"
 +++
 
 ## Problem

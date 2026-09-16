@@ -13,7 +13,7 @@ repo_url = "https://github.com/ElGarno/predict_power_consumption"
 post_url = ""
 cover.image = "cover.webp"
 cover.relative = true
-cover.alt = "Stündliche Vorhersage der Solarerzeugung für den Folgetag"
+cover.alt = "Illustration von Solarpanels vor einem ansteigenden Balkendiagramm mit Prognosekurve"
 +++
 
 ## Problem
