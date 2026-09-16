@@ -13,7 +13,7 @@ repo_url = "https://github.com/ElGarno/NarrAItive"
 post_url = "/posts/narraitive/"
 cover.image = "cover.webp"
 cover.relative = true
-cover.alt = "Illustration eines Kindes, das ein Bilderbuch liest, darüber eine Glühbirne als Ideen-Symbol"
+cover.alt = "NarrAItive-Logo: ein Kind liest ein Bilderbuch, darüber eine Glühbirne, darunter der Schriftzug mit dem Untertitel Digital Children's Picture Book"
 +++
 
 ## Problem
