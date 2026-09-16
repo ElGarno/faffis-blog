@@ -42,4 +42,22 @@ for name in fabiani niax paumpey ooongbaaak hassan86 flipflop86; do
   fi
 done
 
+check public/fuer-vereine/index.html 'class=project-grid' 'Vereins-Seite embeds the card grid'
+check public/fuer-vereine/index.html 'Kinderbasar'          'Vereins-Seite shows the Basar reference'
+check public/index.html '>Für Vereine<'                     'Für Vereine appears in the main menu'
+
+# The page must not read as a commercial offer.
+for word in Honorar Rechnung Angebot Leistungen Preis beauftragen; do
+  if grep -q -- "$word" public/fuer-vereine/index.html 2>/dev/null; then
+    echo "FAIL commercial wording: '$word' found on /fuer-vereine/"
+    fail=1
+  else
+    echo "ok   no commercial wording: '$word'"
+  fi
+done
+
+# Exactly the five club projects, not all eleven.
+n=$(grep -o 'class=project-card>' public/fuer-vereine/index.html | wc -l | tr -d ' ')
+if [ "$n" = "5" ]; then echo "ok   Vereins-Seite shows 5 cards"; else echo "FAIL expected 5 cards, got $n"; fail=1; fi
+
 exit $fail
