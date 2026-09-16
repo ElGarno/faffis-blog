@@ -60,4 +60,6 @@ done
 n=$(grep -o 'class=project-card>' public/fuer-vereine/index.html | wc -l | tr -d ' ')
 if [ "$n" = "5" ]; then echo "ok   Vereins-Seite shows 5 cards"; else echo "FAIL expected 5 cards, got $n"; fail=1; fi
 
+check public/projekte/mai-tasting/index.html 'project-gallery' 'mAI Tasting renders the gallery'
+
 exit $fail
