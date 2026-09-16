@@ -13,6 +13,9 @@ This blog covers technical topics including:
 - Docker and containerization
 - Home automation
 - Data science workflows
+- **Portfolio:** project pages live in `content/projekte/` (one page bundle each, see
+  `docs/superpowers/specs/2026-09-15-portfolio-vereine-design.md` for the frontmatter
+  schema). `scripts/check_projekte.sh` builds the site and asserts they render.
 
 ## Tech Stack
 

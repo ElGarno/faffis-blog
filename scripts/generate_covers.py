@@ -57,6 +57,14 @@ SLUG_PROMPTS: dict[str, str] = {
         "whisky and wine bottle silhouettes with AI/vision overlay, "
         "abstract neural patterns"
     ),
+    "solar-prediction": (
+        "solar panels under a forecast sky, a rising prediction curve overlaid, "
+        "hourly bars beneath it"
+    ),
+    "doko-stats": (
+        "abstract playing cards fanned out, turning into a bar chart, "
+        "no faces, no text, no suits that resemble a real brand"
+    ),
 }
 
 COST_PER_IMAGE_USD = 0.04
@@ -91,8 +99,8 @@ def generate_image(client: OpenAI, slug: str) -> bytes:
     return base64.b64decode(b64)
 
 
-def cover_path(slug: str) -> Path:
-    return POSTS_DIR / slug / "cover.webp"
+def cover_path(slug: str, section: str = "posts") -> Path:
+    return REPO_ROOT / "content" / section / slug / "cover.webp"
 
 
 def main() -> int:
@@ -107,6 +115,10 @@ def main() -> int:
         action="store_true",
         help="Overwrite existing cover.webp",
     )
+    parser.add_argument(
+        "--section", default="posts", choices=["posts", "projekte"],
+        help="Content section to write covers into",
+    )
     args = parser.parse_args()
 
     load_dotenv(REPO_ROOT / ".env")
@@ -120,7 +132,7 @@ def main() -> int:
     generated = 0
 
     for slug in slugs:
-        target = cover_path(slug)
+        target = cover_path(slug, args.section)
         if target.exists() and not args.force:
             print(f"[skip] {slug}: {target.relative_to(REPO_ROOT)} exists")
             continue
