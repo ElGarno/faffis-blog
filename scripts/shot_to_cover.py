@@ -16,22 +16,19 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import math
 import sys
 from pathlib import Path
 
 from PIL import Image
 
 COVER_SIZE = (1200, 675)
-# Lossless: covers get re-processed in place by later steps (normalising an
-# existing cover with itself as src and target), so re-encoding must not
-# introduce generation loss. WEBP_QUALITY then controls compression effort,
-# not visual fidelity (see Pillow's WebP plugin docs).
 WEBP_QUALITY = 82
 
 
 def _save(img: Image.Image, target: Path) -> None:
     target.parent.mkdir(parents=True, exist_ok=True)
-    img.save(target, format="WEBP", lossless=True, quality=WEBP_QUALITY, method=6)
+    img.save(target, format="WEBP", quality=WEBP_QUALITY, method=6)
 
 
 def crop_to_cover(
@@ -41,10 +38,8 @@ def crop_to_cover(
     with Image.open(src) as img:
         rgb = img.convert("RGB")
         scale = size[0] / rgb.width
-        # BOX avoids LANCZOS ringing/blurring thin high-contrast details away
-        # when shrinking (e.g. hairline borders in UI screenshots).
         scaled = rgb.resize(
-            (size[0], max(size[1], round(rgb.height * scale))), Image.BOX
+            (size[0], max(size[1], round(rgb.height * scale))), Image.LANCZOS
         )
         cover = scaled.crop((0, 0, size[0], size[1]))
     # Saved outside the with-block so src may be the same path as target.
@@ -77,8 +72,13 @@ def compose_phone_cover(
         shrink = (size[0] - 2 * margin - gap * (len(frames) - 1)) / sum(
             f.width for f in frames
         )
+        # floor (not round) so the summed shrunk width can only ever land at
+        # or under the budget, never 1-2px over it with more frames.
         frames = [
-            f.resize((round(f.width * shrink), round(f.height * shrink)), Image.LANCZOS)
+            f.resize(
+                (math.floor(f.width * shrink), math.floor(f.height * shrink)),
+                Image.LANCZOS,
+            )
             for f in frames
         ]
         total = sum(f.width for f in frames) + gap * (len(frames) - 1)
@@ -96,7 +96,7 @@ def to_gallery_shot(src: Path, target: Path, height: int = 1400) -> None:
     """Scale a portrait frame to a fixed height for the detail-page gallery."""
     with Image.open(src) as img:
         img = img.convert("RGB")
-        width = int(img.width * height / img.height)
+        width = round(img.width * height / img.height)
         _save(img.resize((width, height), Image.LANCZOS), target)
 
 
