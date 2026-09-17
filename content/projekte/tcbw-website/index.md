@@ -34,9 +34,9 @@ das bei jedem Push neu baut.
 
 ## Ergebnis
 
-Läuft unter tc-bw-attendorn.de, das Hosting kostet nichts. Der laufende Betrieb besteht
-vor allem daraus, automatisch erzeugte Pull Requests zu bestätigen: Spielergebnisse
-zieht die Seite selbstständig von nuLiga, und eine eingehende Vorstandsmail löst einen
-Agenten aus, der sie in Termine, Infos und Sonstiges zerlegt und als Änderungsvorschlag
-einarbeitet. Die Mannschaftsdaten aus dem Repo verwenden inzwischen auch die
-Social-Tools weiter.
+Läuft unter [tc-bw-attendorn.de](https://tc-bw-attendorn.de), das Hosting kostet nichts.
+Der laufende Betrieb besteht vor allem daraus, automatisch erzeugte Pull Requests zu
+bestätigen: Spielergebnisse zieht die Seite selbstständig von nuLiga, und eine
+eingehende Vorstandsmail löst einen Agenten aus, der sie in Termine, Infos und Sonstiges
+zerlegt und als Änderungsvorschlag einarbeitet. Die Mannschaftsdaten aus dem Repo
+verwenden inzwischen auch die Social-Tools weiter.

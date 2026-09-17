@@ -39,7 +39,7 @@ System heraus.
 
 ## Ergebnis
 
-Läuft unter basar.faffi.cloud auf Railway, abgesichert durch getrennte Codes für Kasse
-und Orga. 495 Tests, Migrationen laufen beim Start. Ein Probelauf-Modus legt Testdaten
-an und räumt sie wieder weg, damit das Orga-Team den Ablauf vorher einmal durchspielen
-kann, ohne etwas kaputtzumachen.
+Läuft unter [basar.faffi.cloud](https://basar.faffi.cloud) auf Railway, abgesichert
+durch getrennte Codes für Kasse und Orga. 495 Tests, Migrationen laufen beim Start. Ein
+Probelauf-Modus legt Testdaten an und räumt sie wieder weg, damit das Orga-Team den
+Ablauf vorher einmal durchspielen kann, ohne etwas kaputtzumachen.

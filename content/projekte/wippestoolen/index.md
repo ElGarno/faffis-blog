@@ -8,7 +8,7 @@ status = "wip"
 zeitraum = "2026"
 weight = 30
 stack = ["FastAPI", "Postgres", "Railway", "Vercel"]
-live_url = "https://wippestoolen.vercel.app"
+live_url = "https://wippestoolen.de"
 repo_url = ""
 post_url = "/posts/wippestoolen/"
 cover.image = "cover.webp"
@@ -36,7 +36,7 @@ kann.
 
 ## Ergebnis
 
-Die Landing-Seite läuft unter wippestoolen.vercel.app, das Web-Frontend ist in der
-MVP-Phase, die Mobile-App im Konzept. Das eigentliche Produkt entsteht Schritt für
-Schritt nebenbei, Familie und Hauptjob haben Vorrang. Offen ist vor allem das
-Henne-Ei-Problem des Vertrauens: Zu Beginn hat niemand eine Reputation.
+Die Landing-Seite läuft unter [wippestoolen.de](https://wippestoolen.de), das
+Web-Frontend ist in der MVP-Phase, die Mobile-App im Konzept. Das eigentliche Produkt
+entsteht Schritt für Schritt nebenbei, Familie und Hauptjob haben Vorrang. Offen ist vor
+allem das Henne-Ei-Problem des Vertrauens: Zu Beginn hat niemand eine Reputation.

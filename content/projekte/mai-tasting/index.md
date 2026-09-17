@@ -36,7 +36,7 @@ whisky- oder weinspezifisch.
 
 ## Ergebnis
 
-Beide Apps sind im App Store, die Landing-Seite liegt unter maitasting.app, das Backend
-läuft auf Railway in einer EU-Region. Eine Backend-Änderung wird an genau einer Stelle
-nachgezogen, und beide Apps ziehen gleichzeitig mit — Drift zwischen den Frontends gibt
-es damit nicht.
+Beide Apps sind im App Store, die Landing-Seite liegt unter
+[maitasting.app](https://maitasting.app), das Backend läuft auf Railway in einer
+EU-Region. Eine Backend-Änderung wird an genau einer Stelle nachgezogen, und beide Apps
+ziehen gleichzeitig mit — Drift zwischen den Frontends gibt es damit nicht.

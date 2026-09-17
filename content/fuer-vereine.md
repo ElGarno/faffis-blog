@@ -49,14 +49,15 @@ Verein direkt an den Anbieter. Und wer sich um den laufenden Betrieb kümmert, k
 am Anfang gemeinsam; ich helfe dabei, es so zu bauen, dass man dafür kein Informatiker
 sein muss.
 
-Ich baue nichts, aus dem man nicht wieder rauskommt. Beim TC Blau-Weiß stand vorher eine
-WordPress-Seite, die schlicht niemand mehr benutzt hat — unübersichtlich und
-sicherheitstechnisch nicht mehr zu verantworten. Heute kümmere ich mich zwar weiterhin
-darum, aber der laufende Betrieb besteht im Wesentlichen daraus, Pull Requests zu
-bestätigen, die von selbst entstehen: Spielergebnisse zieht die Seite automatisch von
-nuLiga, und wenn eine Vorstandsmail eintrifft, zerlegt ein Agent sie im Hintergrund in
-Termine, Infos und alles Übrige und arbeitet sie ein. Genau darum geht es beim dritten
-Jahr — die Arbeit macht die Maschine, ein Mensch schaut nur noch drüber.
+Ich baue nichts, aus dem man nicht wieder rauskommt. Beim
+[TC Blau-Weiß](https://tc-bw-attendorn.de) stand vorher eine WordPress-Seite, die
+schlicht niemand mehr benutzt hat — unübersichtlich und sicherheitstechnisch nicht mehr
+zu verantworten. Heute kümmere ich mich zwar weiterhin darum, aber der laufende Betrieb
+besteht im Wesentlichen daraus, Pull Requests zu bestätigen, die von selbst entstehen:
+Spielergebnisse zieht die Seite automatisch von nuLiga, und wenn eine Vorstandsmail
+eintrifft, zerlegt ein Agent sie im Hintergrund in Termine, Infos und alles Übrige und
+arbeitet sie ein. Genau darum geht es beim dritten Jahr — die Arbeit macht die Maschine,
+ein Mensch schaut nur noch drüber.
 
 ## Was schon läuft
 
